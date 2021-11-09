@@ -1,0 +1,7 @@
+{
+    "locales": ["ca"],
+    "defaultLocale": "ca",
+    "pages": {
+        "*": ["common", "urls"]
+    }
+}
