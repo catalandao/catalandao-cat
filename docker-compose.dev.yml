@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+    # Service for the frontend
+    frontend:
+        container_name: "calendarinft"
+        build:
+            context: ./
+        command: yarn dev
+        volumes:
+            - ./:/usr/app
+            - /usr/app/node_modules
+        ports:
+            - "3000:3000"
+        env_file: ./.env.local

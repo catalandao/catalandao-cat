@@ -2,8 +2,14 @@
 
 ## Development
 
+### Without Docker
 ```
 yarn install && yarn dev
+```
+
+### With Docker
+```
+docker-compose -f docker-compose.dev.yml up -d
 ```
 
 ## Production
