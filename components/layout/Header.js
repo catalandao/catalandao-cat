@@ -1,4 +1,4 @@
-import tw from 'tailwind-styled-components';
+import tw from "tailwind-styled-components";
 import useTranslation from "next-translate/useTranslation";
 
 const Header = tw.header``;
@@ -6,10 +6,6 @@ const Header = tw.header``;
 const Component = () => {
     const { t } = useTranslation();
 
-    return (
-        <Header>
-            
-        </Header>
-    );
+    return <Header></Header>;
 };
 export default Component;
