@@ -1,4 +1,4 @@
-# calendarinft-cat project
+# catalandao-cat project
 
 ## Development
 
