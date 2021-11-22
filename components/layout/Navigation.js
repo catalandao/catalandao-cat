@@ -14,13 +14,13 @@ const Navigation = () => {
                 <CatDAOLogo />
             </Link>
 
-            <nav className="">
+            <nav className="hidden sm:block">
                 {/* activeClass={selectedNavItemClass} className={navItemClass} */}
-                <Link href="/manifest">Manifest</Link>
-                <Link href="/eines">Eines</Link>
-                <Link href="/comunitat">Comunitat</Link>
-                <Link href="/projectes">Projectes</Link>
-                <Link href="/contacte">Contacte</Link>
+                <Link href="/manifest">{t("common:5")}</Link>
+                <Link href="/eines">{t("common:6")}</Link>
+                <Link href="/comunitat">{t("common:7")}</Link>
+                <Link href="/projectes">{t("common:8")}</Link>
+                <Link href="/contacte">{t("common:9")}</Link>
             </nav>
 
             {/** Només x mobile */}

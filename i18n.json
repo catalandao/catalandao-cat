@@ -3,6 +3,7 @@
     "defaultLocale": "ca",
     "pages": {
         "*": ["common"],
+        "/": ["index"],
         "/comunitat": ["comunitat"],
         "/contacte": ["contacte"],
         "/eines": ["eines"],

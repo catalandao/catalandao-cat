@@ -6,7 +6,7 @@ const Component = () => {
 
     return (
         <Layout title={t("comunitat:1")}>
-            <h1>Comunitat</h1>
+            <h1>{t("comunitat:1")}</h1>
         </Layout>
     );
 };
