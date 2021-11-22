@@ -1,6 +1,9 @@
-import Layout from "@/components/layout";
-const Component = () => {
-    return <Layout>-</Layout>;
-};
+import Page from "@/components/layout/Page";
+
+const Component = () => (
+    <Page>
+      <h1>Home</h1>
+    </Page>
+);
 
 export default Component;
