@@ -4,7 +4,7 @@ import Link from "./Link";
 
 const Navigation = () => {
     const { t } = useTranslation();
-    // TODO i18n this
+
     return (
         <>
             <Link className="logo" href="/">

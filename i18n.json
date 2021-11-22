@@ -1,7 +1,12 @@
 {
-    "locales": ["ca"],
+    "locales": ["ca", "en"],
     "defaultLocale": "ca",
     "pages": {
-        "*": ["common", "urls"]
+        "*": ["common", "urls"],
+        "/comunitat": ["comunitat"],
+        "/contacte": ["contacte"],
+        "/eines": ["eines"],
+        "/manifest": ["manifest"],
+        "/projectes": ["projectes"]
     }
 }
