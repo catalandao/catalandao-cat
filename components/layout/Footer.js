@@ -5,16 +5,14 @@ import { LogoTwitter } from "@/styles/svgs/logos";
 import { LogoGitcoin } from "@/styles/svgs/logos";
 import { CatDaoAdornment } from "@/styles/svgs/logos";
 import useTranslation from "next-translate/useTranslation";
+import tw from 'tailwind-styled-components';
 
 const Component = () => {
     const { t } = useTranslation();
 
     return (
         <footer>
-            <p className="note">
-                CatalanDAO és una organització autònoma descentralitzada i coordinada a través de la blockchain amb
-                l’objectiu de fomentar i promoure la cultura catalana.
-            </p>
+            <p className="note">{t("common:4")}</p>
 
             <span className="adornment">
                 <CatDaoAdornment />
@@ -41,4 +39,5 @@ const Component = () => {
         </footer>
     );
 };
+
 export default Component;

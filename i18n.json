@@ -2,7 +2,7 @@
     "locales": ["ca", "en"],
     "defaultLocale": "ca",
     "pages": {
-        "*": ["common", "urls"],
+        "*": ["common"],
         "/comunitat": ["comunitat"],
         "/contacte": ["contacte"],
         "/eines": ["eines"],
