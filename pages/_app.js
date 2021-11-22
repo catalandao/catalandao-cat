@@ -1,5 +1,6 @@
 import NextNProgress from "nextjs-progressbar";
 import "@/styles/globals.css";
+import "@/styles/index.css";
 
 function MyApp({ Component, pageProps }) {
     return (

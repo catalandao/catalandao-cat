@@ -1,11 +1,13 @@
-import tw from "tailwind-styled-components";
 import useTranslation from "next-translate/useTranslation";
+import Navigation from "./Navigation";
 
-const Header = tw.header``;
 
 const Component = () => {
     const { t } = useTranslation();
 
-    return <Header></Header>;
+    return <header>
+        <Navigation />
+        {/* language selector */}
+    </header>;
 };
 export default Component;
