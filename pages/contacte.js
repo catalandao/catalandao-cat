@@ -1,10 +1,10 @@
-import Page from "@/components/layout/Page"
+import Page from "@/components/layout/Page";
 
 const Component = () => {
-  return (
-    <Page>
-      <h1>Contacte</h1>
-    </Page>
-  )
-}
-export default Component
+    return (
+        <Page>
+            <h1>Contacte</h1>
+        </Page>
+    );
+};
+export default Component;
