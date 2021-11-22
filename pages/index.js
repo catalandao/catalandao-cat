@@ -1,9 +1,14 @@
-import Page from "@/components/layout/Page";
+import Layout from "@/components/layout";
+import useTranslation from "next-translate/useTranslation";
 
-const Component = () => (
-    <Page>
-        <h1>Home</h1>
-    </Page>
-);
+const Component = () => {
+    const { t } = useTranslation();
+
+    return (
+        <Layout title={t("index:1")}>
+            <h1>Home</h1>
+        </Layout>
+    );
+};
 
 export default Component;

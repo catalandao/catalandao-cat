@@ -2,7 +2,7 @@ import { CatDAOLogo } from "@/styles/svgs/logos";
 import useTranslation from "next-translate/useTranslation";
 import Link from "./Link";
 import { Divide as Hamburger } from "hamburger-react";
-import { useState } from 'react';
+import { useState } from "react";
 
 const Navigation = () => {
     const { t } = useTranslation();
@@ -34,7 +34,7 @@ const Navigation = () => {
                     toggled={mobileMenuIsOpen}
                     toggle={setMobileMenuIsOpen}
                     hideOutline={true}
-                    color={"#d3d3d3"}                    
+                    color={"#d3d3d3"}
                 />
             </div>
         </>

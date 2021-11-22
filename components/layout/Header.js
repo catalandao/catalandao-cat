@@ -1,9 +1,8 @@
 import useTranslation from "next-translate/useTranslation";
 import Navigation from "./Navigation";
-import tw from 'tailwind-styled-components';
+import tw from "tailwind-styled-components";
 import i18nConfig from "../../i18n.json";
 import setLanguage from "next-translate/setLanguage";
-
 
 const Component = () => {
     const { t } = useTranslation();

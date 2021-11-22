@@ -5,7 +5,7 @@ import { LogoTwitter } from "@/styles/svgs/logos";
 import { LogoGitcoin } from "@/styles/svgs/logos";
 import { CatDaoAdornment } from "@/styles/svgs/logos";
 import useTranslation from "next-translate/useTranslation";
-import tw from 'tailwind-styled-components';
+import tw from "tailwind-styled-components";
 
 const Component = () => {
     const { t } = useTranslation();
