@@ -6,7 +6,9 @@ const Component = () => {
 
     return (
         <Layout title={t("index:1")}>
-            <h1>{t("index:1")}</h1>
+            <section className="content-wrapper py-10">
+                <h1>{t("index:1")}</h1>
+            </section>
         </Layout>
     );
 };
