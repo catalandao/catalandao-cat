@@ -18,9 +18,7 @@ const Component = () => {
 
     return (
         <Footer>
-
             <FooterContainer>
-
                 <Note>{t("common:4")}</Note>
 
                 <Adornment>
@@ -45,7 +43,6 @@ const Component = () => {
                         <LogoEmail className="w-10 h-10" />
                     </a>
                 </SocialNav>
-
             </FooterContainer>
         </Footer>
     );

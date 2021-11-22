@@ -6,7 +6,7 @@ const Component = () => {
 
     return (
         <header>
-            <Navigation />            
+            <Navigation />
         </header>
     );
 };

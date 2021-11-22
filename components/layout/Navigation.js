@@ -4,7 +4,7 @@ import Link from "./Link";
 import { Divide as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import { Transition } from "@headlessui/react";
-import tw from 'tailwind-styled-components';
+import tw from "tailwind-styled-components";
 import i18nConfig from "../../i18n.json";
 import setLanguage from "next-translate/setLanguage";
 
@@ -64,11 +64,9 @@ const Navigation = () => {
                     <div>Sóc un punto mobile menú!!!!</div>
                 </Transition>
             </div>
-
         </>
     );
 };
-
 
 const LangSelector = () => {
     const { lang } = useTranslation();
