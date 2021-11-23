@@ -12,7 +12,7 @@ const Navigation = () => {
 
     return (
         <>
-            <div className="content-wrapper py-5 w-full">
+            <div className="content-wrapper py-6 w-full">
                 <Link className="logo" href="/">
                     <CatDAOLogo />
                 </Link>
@@ -54,7 +54,7 @@ const Navigation = () => {
                             toggle={setMobileMenuIsOpen}
                             hideOutline={true}
                             color={"#d3d3d3"}
-                        />
+                        />                        
                         <LangSelector />
                     </div>
                 </div>
