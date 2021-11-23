@@ -73,6 +73,35 @@ main.projectes-page {
   background: rgb(238 238 238);
 }
 
+/** Grid projectes **/
+@screen xl {
+  main.projectes-page .grid-item {
+    height: 600px;
+    font-size: 120px;
+    @apply min-w-full flex justify-center items-center border-black border-2 rounded-md text-red-400;
+  }
+  main.projectes-page .details-group {
+    @apply flex flex-row;
+  }
+  main.projectes-page .details-group .details {
+    @apply w-1/2;
+  }
+  main.projectes-page .details header {
+    @apply text-4xl py-6 border-b-2 border-black mx-5;
+  }
+  main.projectes-page .details > p,
+  main.projectes-page .details > dl {
+    @apply px-6 py-4;
+  }
+  main.projectes-page .details > dl > dt {
+    @apply py-2 mt-4;
+  }
+  main.projectes-page .details > dl > dd > iframe {
+    @apply my-10;
+  }
+}
+
+
 main.contacte-page {
 
 }
