@@ -6,33 +6,13 @@ header .logo {
     @apply hidden lg:block lg:m-1 w-8;
 }
 
-/*footer {
-    background: rgb(217 216 216);
-    @apply flex flex-col lg:flex-row w-full;
-}
-
-footer p.note {
-    @apply text-white text-sm p-2 lg:text-lg order-2 lg:order-1 lg:w-1/3 w-full;
-}
-
-footer span.adornment {
-    @apply order-3 lg:order-2 w-full lg:w-1/3 items-center;
-}
-
-footer nav.social {
-    @apply order-1 lg:order-3 flex flex-row items-center  lg:w-1/3 w-full;
-}
-
-footer nav.social a {
-}*/
-
 .content-wrapper {
     @apply duration-300 max-w-xl mx-auto text-gray-600 text-opacity-90 px-5;
 }
 
 @screen sm {
     .content-wrapper {
-        @apply max-w-2xl;
+        @apply w-full max-w-full;
     }
 }
 
@@ -58,6 +38,65 @@ footer nav.social a {
     .content-wrapper {
         @apply max-w-7xl;
     }
+}
+
+header .logo {
+  @apply hidden lg:block m-1 w-8;
+}
+
+header nav {
+  @apply flex flex-col lg:flex-row mt-3 px-12 -translate-x-full lg:translate-x-8 fixed lg:static top-0 bottom-0 lg:w-full left-0 bg-white transition-all;
+}
+
+header nav > a {
+  @apply flex text-black no-underline text-sm p-8 hover:text-gray-600 hover:underline;
+}
+
+/** Page sections */
+main.manifest-page {
+  background: rgb(238 86 90);
+}
+
+main.eines-page {
+  background: rgb(88 194 177);
+}
+
+main.comunitat-page {
+  background: rgb(78 154 204);
+}
+
+main.projectes-page {
+  background: rgb(238 238 238);
+}
+
+main.contacte-page {
+
+}
+
+/** Footer */
+
+footer {
+  background: rgb(217 216 216);
+  @apply flex flex-col lg:flex-row w-full p-4 pb-28;
+}
+
+footer p.note {
+  @apply text-white text-sm p-10 lg:p-2 lg:text-lg order-2 lg:order-1 lg:w-1/3 w-full;
+}
+
+footer span.adornment {
+  @apply order-3 lg:order-2 lg:w-1/3 flex justify-center px-10 w-full;
+}
+footer span.adornment > svg {
+  @apply max-w-sm lg:max-w-lg;
+}
+
+footer nav.social {
+  @apply order-1 lg:order-3 flex flex-row lg:w-1/3 items-start px-6 lg:flex-1 mx-12 my-6 justify-around;
+}
+
+footer nav.social a {
+  @apply mx-3;
 }
 
 
