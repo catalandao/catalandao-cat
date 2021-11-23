@@ -4,7 +4,7 @@ import BaseLink from "next/link";
 const Link = ({ href, children, activeClass, className }) => {
     const { asPath } = useRouter();
     const active = asPath === href;
-    const selectedClassName = active ? activeClass : className;
+    const selectedClassName = active ? activeClass + " " + className : className;
 
     return (
         <BaseLink href={href}>

@@ -5,7 +5,7 @@ const Component = () => {
     const { t } = useTranslation();
 
     return (
-        <Layout title={t("manifest:1")}>
+        <Layout title={t("manifest:1")} className="manifest-page">
             <section className="content-wrapper py-10">
                 <h1>{t("manifest:1")}</h1>
             </section>

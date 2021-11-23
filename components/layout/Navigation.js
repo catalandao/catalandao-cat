@@ -3,17 +3,13 @@ import useTranslation from "next-translate/useTranslation";
 import Link from "./Link";
 import { Divide as Hamburger } from "hamburger-react";
 import { useState } from "react";
-import { Transition } from "@headlessui/react";
-import tw from "tailwind-styled-components";
 import i18nConfig from "../../i18n.json";
 import setLanguage from "next-translate/setLanguage";
-
-const Container = tw.div`content-wrapper py-20`;
 
 const Navigation = () => {
     const { t } = useTranslation();
     const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
-
+    
     return (
         <>
             <div className="content-wrapper py-5 w-full">
@@ -34,35 +30,28 @@ const Navigation = () => {
 
                     <LangSelector />
                 </nav>
-
-                {/** Només x mobile */}
-                <div className="sm:hidden">
-                    <Hamburger
-                        direction="right"
-                        role="button"
-                        aria-label=""
-                        label=""
-                        easing="ease-in"
-                        toggled={mobileMenuIsOpen}
-                        toggle={setMobileMenuIsOpen}
-                        hideOutline={true}
-                        color={"#d3d3d3"}
-                    />
+              {/** Només x mobile */}
+              <div className="lg:hidden fixed top-0">
+                  <nav className={mobileMenuIsOpen ? "translate-x-0" : ""}>
+                    <Link activeClass="underline" href="/">{t("common:10")}</Link>
+                    <Link activeClass="underline" href="/manifest">{t("common:5")}</Link>
+                    <Link activeClass="underline" href="/eines">{t("common:6")}</Link>
+                    <Link activeClass="underline" href="/comunitat">{t("common:7")}</Link>
+                    <Link activeClass="underline" href="/projectes">{t("common:8")}</Link>
+                    <Link activeClass="underline" href="/contacte">{t("common:9")}</Link>
+                  </nav>
+                  <Hamburger
+                    direction="right"
+                    role="button"
+                    aria-label=""
+                    label=""
+                    easing="ease-in"
+                    toggled={mobileMenuIsOpen}
+                    toggle={setMobileMenuIsOpen}
+                    hideOutline={true}
+                    color={"#d3d3d3"}
+                  />
                 </div>
-
-                {/** Mostra oculta mobile menú */}
-                <Transition
-                    show={mobileMenuIsOpen}
-                    enter="transition-opacity duration-100"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="transition-opacity duration-300"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                    className=""
-                >
-                    <div>Sóc un punto mobile menú!!!!</div>
-                </Transition>
             </div>
         </>
     );

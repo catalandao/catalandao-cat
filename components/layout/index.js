@@ -1,16 +1,14 @@
-import tw from "tailwind-styled-components";
-
 import Head from "./Head";
 import Header from "./Header";
 import Cookies from "./Cookies";
 import Footer from "./Footer";
 
-const Component = ({ children }) => {
+const Component = ({ children, className }) => {
     return (
         <>
             <Head />
             <Header />
-            <main>{children}</main>
+            <main className={className}>{children}</main>
             <Footer />
             <Cookies />
         </>

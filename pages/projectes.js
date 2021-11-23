@@ -5,8 +5,8 @@ const Component = () => {
     const { t } = useTranslation();
 
     return (
-        <Layout title={t("projectes:1")}>
-            <section className="content-wrapper py-10">
+        <Layout title={t("projectes:1")} className="projectes-page">
+          <section className="content-wrapper py-10">
                 <h1>{t("projectes:1")}</h1>
             </section>
         </Layout>
