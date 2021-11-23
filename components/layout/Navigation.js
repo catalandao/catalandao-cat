@@ -9,7 +9,7 @@ import setLanguage from "next-translate/setLanguage";
 const Navigation = () => {
     const { t } = useTranslation();
     const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
-    
+
     return (
         <>
             <div className="content-wrapper py-5 w-full">
@@ -30,27 +30,27 @@ const Navigation = () => {
 
                     <LangSelector />
                 </nav>
-              {/** Només x mobile */}
-              <div className="lg:hidden fixed top-0">
-                  <nav className={mobileMenuIsOpen ? "translate-x-0" : ""}>
-                    <Link activeClass="underline" href="/">{t("common:10")}</Link>
-                    <Link activeClass="underline" href="/manifest">{t("common:5")}</Link>
-                    <Link activeClass="underline" href="/eines">{t("common:6")}</Link>
-                    <Link activeClass="underline" href="/comunitat">{t("common:7")}</Link>
-                    <Link activeClass="underline" href="/projectes">{t("common:8")}</Link>
-                    <Link activeClass="underline" href="/contacte">{t("common:9")}</Link>
-                  </nav>
-                  <Hamburger
-                    direction="right"
-                    role="button"
-                    aria-label=""
-                    label=""
-                    easing="ease-in"
-                    toggled={mobileMenuIsOpen}
-                    toggle={setMobileMenuIsOpen}
-                    hideOutline={true}
-                    color={"#d3d3d3"}
-                  />
+                {/** Només x mobile */}
+                <div className="lg:hidden fixed top-0">
+                    <nav className={mobileMenuIsOpen ? "translate-x-0" : ""}>
+                        <Link activeClass="underline" href="/">{t("common:10")}</Link>
+                        <Link activeClass="underline" href="/manifest">{t("common:5")}</Link>
+                        <Link activeClass="underline" href="/eines">{t("common:6")}</Link>
+                        <Link activeClass="underline" href="/comunitat">{t("common:7")}</Link>
+                        <Link activeClass="underline" href="/projectes">{t("common:8")}</Link>
+                        <Link activeClass="underline" href="/contacte">{t("common:9")}</Link>
+                    </nav>
+                    <Hamburger
+                        direction="right"
+                        role="button"
+                        aria-label=""
+                        label=""
+                        easing="ease-in"
+                        toggled={mobileMenuIsOpen}
+                        toggle={setMobileMenuIsOpen}
+                        hideOutline={true}
+                        color={"#d3d3d3"}
+                    />
                 </div>
             </div>
         </>
@@ -61,7 +61,7 @@ const LangSelector = () => {
     const { lang } = useTranslation();
     return (
         <ul className="flex items-center space-x-2">
-            {i18nConfig?.locales?.map(locale => {
+            {i18nConfig?.locales?.filter(locale => locale !== lang).map(locale => {
                 return (
                     <li key={locale}>
                         <button
