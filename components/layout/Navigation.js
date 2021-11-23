@@ -30,8 +30,10 @@ const Navigation = () => {
 
                     <LangSelector />
                 </nav>
+
                 {/** Només x mobile */}
-                <div className="lg:hidden fixed top-0">
+                <div className="lg:hidden fixed top-0 w-full left-0">
+
                     <nav className={mobileMenuIsOpen ? "translate-x-0" : ""}>
                         <Link activeClass="selected" href="/">{t("common:10")}</Link>
                         <Link activeClass="selected" href="/manifest" className="merda">{t("common:5")}</Link>
@@ -40,17 +42,21 @@ const Navigation = () => {
                         <Link activeClass="selected" href="/projectes">{t("common:8")}</Link>
                         <Link activeClass="selected" href="/contacte">{t("common:9")}</Link>
                     </nav>
-                    <Hamburger
-                        direction="right"
-                        role="button"
-                        aria-label=""
-                        label=""
-                        easing="ease-in"
-                        toggled={mobileMenuIsOpen}
-                        toggle={setMobileMenuIsOpen}
-                        hideOutline={true}
-                        color={"#d3d3d3"}
-                    />
+
+                    <div className="flex items-center justify-between w-full pl-2 pr-5">
+                        <Hamburger
+                            direction="right"
+                            role="button"
+                            aria-label=""
+                            label=""
+                            easing="ease-in"
+                            toggled={mobileMenuIsOpen}
+                            toggle={setMobileMenuIsOpen}
+                            hideOutline={true}
+                            color={"#d3d3d3"}
+                        />
+                        <LangSelector />
+                    </div>
                 </div>
             </div>
         </>
@@ -73,7 +79,7 @@ const LangSelector = () => {
                                 date.setTime(date.getTime() + expireMs);
                                 document.cookie = `NEXT_LOCALE=${locale};expires=${date.toUTCString()};path=/`;
                             }}
-                            className={`border-b ${locale === lang ? "border-b" : "border-transparent"}`}
+                            className={`border-b uppercase ${locale === lang ? "border-b" : "border-transparent"}`}
                         >
                             {locale}
                         </button>
