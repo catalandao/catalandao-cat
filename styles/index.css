@@ -52,6 +52,10 @@ header nav > a {
   @apply flex text-black no-underline text-sm p-8 hover:text-gray-600 hover:underline;
 }
 
+header nav a.selected {
+  @apply underline;
+}
+
 /** Page sections */
 main.manifest-page {
   background: rgb(238 86 90);

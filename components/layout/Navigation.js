@@ -21,11 +21,11 @@ const Navigation = () => {
                 <nav className="hidden sm:flex items-center justify-between w-full">
                     <ul className="flex items-center space-x-5">
                         {/* activeClass={selectedNavItemClass} className={navItemClass} */}
-                        <Link href="/manifest">{t("common:5")}</Link>
-                        <Link href="/eines">{t("common:6")}</Link>
-                        <Link href="/comunitat">{t("common:7")}</Link>
-                        <Link href="/projectes">{t("common:8")}</Link>
-                        <Link href="/contacte">{t("common:9")}</Link>
+                        <Link href="/manifest" activeClass="selected">{t("common:5")}</Link>
+                        <Link href="/eines" activeClass="selected">{t("common:6")}</Link>
+                        <Link href="/comunitat" activeClass="selected">{t("common:7")}</Link>
+                        <Link href="/projectes" activeClass="selected">{t("common:8")}</Link>
+                        <Link href="/contacte" activeClass="selected">{t("common:9")}</Link>
                     </ul>
 
                     <LangSelector />
@@ -33,12 +33,12 @@ const Navigation = () => {
                 {/** Només x mobile */}
                 <div className="lg:hidden fixed top-0">
                     <nav className={mobileMenuIsOpen ? "translate-x-0" : ""}>
-                        <Link activeClass="underline" href="/">{t("common:10")}</Link>
-                        <Link activeClass="underline" href="/manifest">{t("common:5")}</Link>
-                        <Link activeClass="underline" href="/eines">{t("common:6")}</Link>
-                        <Link activeClass="underline" href="/comunitat">{t("common:7")}</Link>
-                        <Link activeClass="underline" href="/projectes">{t("common:8")}</Link>
-                        <Link activeClass="underline" href="/contacte">{t("common:9")}</Link>
+                        <Link activeClass="selected" href="/">{t("common:10")}</Link>
+                        <Link activeClass="selected" href="/manifest" className="merda">{t("common:5")}</Link>
+                        <Link activeClass="selected" href="/eines">{t("common:6")}</Link>
+                        <Link activeClass="selected" href="/comunitat">{t("common:7")}</Link>
+                        <Link activeClass="selected" href="/projectes">{t("common:8")}</Link>
+                        <Link activeClass="selected" href="/contacte">{t("common:9")}</Link>
                     </nav>
                     <Hamburger
                         direction="right"
