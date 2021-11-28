@@ -22,7 +22,7 @@ const Header = () => {
             <span className="hidden lg:block"><CatDAOLogo /></span>
             <span className="lg:hidden">{t('common:header.home')}</span>
           </NavItem>
-          {/*<NavItem href="/manifest">{t('common:header.manifest')}</NavItem>*/}
+          <NavItem href="/manifest">{t('common:header.manifest')}</NavItem>
           {/*<NavItem href="/eines">{t('common:header.tools')}</NavItem>*/}
           {/*<NavItem href="/comunitat">{t('common:header.community')}</NavItem>*/}
           <NavItem href="/projectes">{t('common:header.projects')}</NavItem>
