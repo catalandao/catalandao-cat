@@ -2,6 +2,28 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useTranslation } from '@/lib/i18n';
 import Page from '@/components/Page';
+import { HeroCommunity, HeroManifest, HeroProjects, HeroTools } from '@/styles/assets/svgs/logos';
+
+interface Props {
+  className?: string;
+  children: React.ReactNode;
+}
+
+interface BlockProps extends Props {
+  colored?: boolean;
+}
+const Block = ({ colored, children, className = '' }: BlockProps) => (
+  <div className={`${className} ${colored ? 'bg-[#EEEEEE]' : ''} items-center relative py-6 flex flex-col`}>{children}</div>
+);
+const Description = ({ children, className = '' }: Props) => (
+  <div className={`${className} px-6 py-10 max-w-6xl`}>{children}</div>
+);
+const Title = ({ children, className = '' }: Props) => (
+  <h3 className={`${className} text-2xl mb-4 lg:text-3xl`}>{children}</h3>
+);
+const Hero = ({ children, className = '' }: Props) => (
+  <div className={`${className} overflow-y-hidden max-h-xl max-w-6xl flex justify-items-start`}>{children}</div>
+);
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
@@ -13,7 +35,43 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Page>
-        {t('common:index')}
+        <Block colored>
+          <Hero>
+            <HeroManifest className="h-60 lg:h-auto flex flex-grow flex-1 w-full" />
+          </Hero>
+          <Description>
+            <Title>Industrial society and its future</Title>
+            <p>The Industrial Revolution and its consequences have been a disaster for the human race.</p>
+          </Description>
+        </Block>
+        <Block>
+          <Hero>
+            <HeroTools className="h-60 lg:h-auto fflex flex-grow flex-1 w-full" />
+          </Hero>
+          <Description>
+
+            <Title>Benvingut a la CatalanDAO</Title>
+            <p>La CatalanDAO és una organització autònoma descentralitzada que s’organitza i coordina amb eines i regulacions executades en una blockchain.</p>
+          </Description>
+        </Block>
+        <Block colored>
+          <Hero>
+            <HeroCommunity className="h-60 lg:h-auto fflex flex-grow flex-1 w-full" />
+          </Hero>
+          <Description>
+            <Title>Comunitat</Title>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum a arcu cursus vitae congue mauris. Quis auctor elit sed vulputate mi sit amet.</p>
+          </Description>
+        </Block>
+        <Block>
+          <Hero>
+            <HeroProjects className="h-60 lg:h-auto fflex flex-grow flex-1 w-full" />
+          </Hero>
+          <Description>
+            <Title>Projectes</Title>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum a arcu cursus vitae congue mauris. Quis auctor elit sed vulputate mi sit amet.</p>
+          </Description>
+        </Block>
       </Page>
     </div>
   );

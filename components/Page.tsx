@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Footer from './Footer';
 import Header from './Header';
 
@@ -6,14 +7,14 @@ interface Props {
   children: React.ReactNode;
   className?: string;
 }
-const Page = ({ children, className }: Props) => {
-  return (
-    <>
-      <Header />
-      <main className={`${className} py-5 px-10 min-h-screen`}>{children}</main>
-      <Footer />
-    </>
-  );
-};
+const Page = ({ children, className = '' }: Props) => (
+  <>
+    <Header />
+    <main className={`${className} pt-20`}>
+      {children}
+    </main>
+    <Footer />
+  </>
+);
 
 export default Page;
