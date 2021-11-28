@@ -16,6 +16,5 @@ export default async function handler(
   res: NextApiResponse<unknown>,
 ) {
   const buyers = mockBuyers();
-  console.log({ buyers });
   return res.status(200).json(buyers);
 }

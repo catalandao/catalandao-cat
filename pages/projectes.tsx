@@ -9,7 +9,6 @@ import NFTPhoto from '../public/images/NFT-destacat.png';
 import PhotoKlas from '../public/images/Foto-Klas.png';
 import PhotoCaboSanRoque from '../public/images/Foto-CaboSanRoque.png';
 import { Trans } from 'react-i18next';
-import Login from '@/components/Login';
 
 
 interface Props {
@@ -42,10 +41,10 @@ interface BtProps extends Props {
   onClick?: React.MouseEventHandler;
 }
 const CtaButton = ({ children, onClick, className }: BtProps) => (
-  <button className={`${className} text-white text-sm lg:text-lg text-center py-2 px-20 shadow-lg shadow-dark-700 bg-[#0E6FFF] rounded`} onClick={onClick}>{children}</button>
+  <button className={`${className} text-white text-sm lg:text-lg text-center py-2 px-4 lg:px-20 shadow-lg shadow-dark-700 bg-[#0E6FFF] rounded`} onClick={onClick}>{children}</button>
 );
 const SecondaryButton = ({ children, onClick, className }: BtProps) => (
-  <button className={`${className} text-white text-sm lg:text-lg text-center py-2 px-20 shadow-lg shadow-dark-700 bg-[#FF4242] rounded`} onClick={onClick}>{children}</button>
+  <button className={`${className} text-white text-sm lg:text-lg text-center py-2 px-4 lg:px-20 shadow-lg shadow-dark-700 bg-[#FF4242] rounded`} onClick={onClick}>{children}</button>
 );
 
 interface ImgProps extends Omit<Props, 'children'> {
@@ -77,20 +76,15 @@ const Colophon = ({ children, className = '' }: Props) => (
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-interface Buyer {
-
-}
-
 const Component = () => {
   const { t } = useTranslation();
-  const { data: buyers = [], _error } = useSwr<Buyer[]>('/api/buyers', fetcher);
+  const { data: buyers = [] } = useSwr('/api/buyers', fetcher);
 
   return (
     <Page className="bg-[#EEE] text-xs lg:text-lg">
       <Block>
         <RRow>
           <RCol className="order-2 lg:order-1">
-            <Login />
             <header>
               <span className="text-small text-[#AAA]">{t('projects:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
               <Title>{t('projects:intro.label', { n: 2 })}</Title>

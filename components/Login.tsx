@@ -1,35 +1,38 @@
-import { useState } from 'react';
-import { useWallet } from 'use-wallet';
-import Web3 from 'web3';
-import Web3Token from 'web3-token';
+import useLogin from '@/lib/useLogin';
+
+interface Props {
+  children?: React.ReactNode;
+  className?: string;
+}
+interface ButtonProps extends Props {
+  disabled?: boolean;
+  onClick?: React.MouseEventHandler;
+}
+const Button = ({ children, onClick, className = '', disabled }: ButtonProps) => (
+  <button onClick={onClick} disabled={disabled} className={`${className} px-5 py-2 text-white text-xl rounded-lg border-2 border-cyan-500 bg-blue-600 hover:bg-blue-700`}>{children}</button>
+);
+
+const Badge = ({ children, className = '' }: Props) => (
+  <span className={`${className} px-5 py-2 text-white text-xl rounded-lg border-2 border-cyan-500 bg-blue-600 hover:bg-blue-700`}>{children}</span>
+);
 
 const Login = () => {
-  const wallet = useWallet();
-  const [verified, setVerified] = useState(false);
-  const activate = () => wallet.connect('injected');
-  const verify = async () => {
-    const web3 = new Web3(wallet.ethereum);
-    const token = await Web3Token.sign((msg: unknown) => web3.eth.personal.sign(msg, wallet.account), '1d');
-    const response = await fetch('/api/authorization', { headers: { Authorization: token } });
-    if (response.status === 200) {
-      setVerified(true);
-    }
-  };
+  const { activate, verified, verify, state, disconnect } = useLogin();
 
   if (verified) {
-    return <span>Verified!</span>;
+    return <Button onClick={() => disconnect()}>Desconectar</Button>;
   }
 
-  if (wallet.status === 'connecting') {
-    return (<span>Connecting...</span>);
+  if (state === 'connecting') {
+    return <Button disabled>Connectant</Button>;
   }
 
-  if (wallet.status === 'connected') {
-    return (<button onClick={() => verify()}>Verify?</button>)
+  if (state === 'connected') {
+    return (<Button onClick={() => verify()}>Verify?</Button>);
   }
 
   // ethereum?.getSigner(wallet.account).sign('hola')
-  return <button onClick={() => activate()}>connect</button>;
+  return <Button onClick={() => activate()}>connect</Button>;
 };
 
 export default Login;

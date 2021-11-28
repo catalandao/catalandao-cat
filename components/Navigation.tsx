@@ -8,10 +8,17 @@ interface Props {
 export const Navigation = ({ children, isOpen = false }: Props) => {
   const [opened, setOpened] = React.useState(isOpen);
   return (
-    <div className={`w-2/5 lg:w-4/5 h-full lg:h-auto border-r lg:border-r-transparent fixed lg:pt-6 lg:ml-10 pt-14 pr-5 bg-white lg:bg-opacity-0 left-0 top-0 transition-all ease-in transform lg:translate-x-0 ${opened ? 'translate-x-0' : '-translate-x-full'}`}>
-      <MenuButton selected={opened} onMenuPressed={() => setOpened(!opened)} />
-      <nav className="flex flex-col lg:flex-row">{children}</nav>
-    </div>
+    <>
+      {/* desktop nav */}
+      <nav className="flex-row hidden lg:inline-flex">{children}</nav>
+      {/* movbile nav */}
+      <div className="flex lg:hidden relative">
+        <div className={`fixed left-0 top-0 w-3/5 transition-all ease-in transform flex flex-col bg-white h-screen w-full transform ${opened ? 'translate-x-0' : '-translate-x-full'}`}>
+          <MenuButton selected={opened} onMenuPressed={() => setOpened(!opened)} />
+          <nav className="flex-col inline-flex">{children}</nav>
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -12,10 +12,8 @@ export default async function handler(
 ) {
   const token = req.headers.authorization;
   const { address } = await verify(token);
-  console.log({ address });
-
   if (authorized.includes(address)) {
-    return res.status(200).json({});
+    return res.status(200).json({ address, msg: 'Ok' });
   }
-  return res.status(400).json({});
+  return res.status(400).json({ address, msg: 'Ko' });
 }
