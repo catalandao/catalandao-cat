@@ -31,10 +31,10 @@ const Block = ({ id, children, colored, className = '' }: BlockProps) => (
 );
 
 const RRow = ({ children, className = '' }: Props) => (
-  <div className={`${className} flex lg:flex-row lg:space-x-10 w-full p-6 box-border flex-col mx-auto max-w-screen-xl`}>{children}</div>
+  <div className={`${className} flex lg:flex-row lg:space-x-10 w-full p-1 lg:p-6 box-border flex-col mx-auto max-w-screen-xl`}>{children}</div>
 );
 const RCol = ({ children, className = '' }: Props) => (
-  <div className={`${className} flex-1 p-6 space-y-6`}>{children}</div>
+  <div className={`${className} flex-1 px-3 lg:p-6 space-y-6`}>{children}</div>
 );
 
 interface BtProps extends Props {
@@ -85,12 +85,19 @@ const Component = () => {
     <Page className="bg-[#EEE] text-xs lg:text-lg">
       <Block>
         <RRow>
-          <RCol className="order-2 lg:order-1">
+          <RCol>
             <header>
               <span className="text-small text-[#AAA]">{t('projects:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
               <h1 className="flex text-2xl lg:text-5xl my-8">{t('projects:intro.label', { n: 2 })}</h1>
             </header>
-            <p className="max-w-2xl min-h-80">{t('projects:intro.text')}</p>
+            <div className="block lg:hidden">
+              <Img className="max-w-md mx-auto" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
+              <div className="flex flex-col">
+                <span className="text-xl lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
+                <span className="text-xl lg:text-xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
+              </div>
+            </div>
+            <p className="max-w-2xl lg:min-h-80">{t('projects:intro.text')}</p>
             <div className="my-10 flex flex-col">
               <CtaLink href="https://opensea.io/CatalanDAO">{t('projects:intro.cta')}</CtaLink>
               <div className="flex flex-row justify-around p-2 my-3">
@@ -100,12 +107,12 @@ const Component = () => {
                   <span className="mx-2">&#x2753;</span>{t('projects:intro.help.faq')}</Link>
               </div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
-              <span className="text-xl lg:text-xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
+            <div className="flex flex-col hidden lg:block">
+              <span className="text-xl flex lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
+              <span className="text-xl flex lg:text-xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
             </div>
           </RCol>
-          <RCol className="order-1 lg:order-2">
+          <RCol className="hidden lg:block">
             <Img className="max-w-md" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
           </RCol>
         </RRow>
@@ -159,26 +166,28 @@ const Component = () => {
       <Block id="faq" colored>
         <RRow>
           <RCol>
-            <Title>{t('projects:faq.title')}</Title>
-            <details open>
-              <summary className="-mx-5">Què és un NFT?</summary>
-              <p>NFT és l’acrònim de Non-Fungible Token, que podem traduir com Token No-Fungible. Els NFTs són certificats d’autenticitat basats en tecnologia de cadena de blocs (blockchain), que enregistra qualsevol tipus de format digital, qui n’és creador, qui propietari, l’ús que se’n pot fer i els privilegis que proporciona.</p>
-            </details>
+            <div className="p-4 lg:p-0 space-y-6">
+              <Title>{t('projects:faq.title')}</Title>
+              <details open>
+                <summary className="-mx-5">Què és un NFT?</summary>
+                <p>NFT és l’acrònim de Non-Fungible Token, que podem traduir com Token No-Fungible. Els NFTs són certificats d’autenticitat basats en tecnologia de cadena de blocs (blockchain), que enregistra qualsevol tipus de format digital, qui n’és creador, qui propietari, l’ús que se’n pot fer i els privilegis que proporciona.</p>
+              </details>
 
-            <details>
-              <summary className="-mx-5">Què és un NFT d’Advent de la CatalanDAO?</summary>
-              <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
-            </details>
+              <details>
+                <summary className="-mx-5">Què és un NFT d’Advent de la CatalanDAO?</summary>
+                <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
+              </details>
 
-            <details>
-              <summary className="-mx-5">Com puc participar a la subhasta?</summary>
-              <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
-            </details>
+              <details>
+                <summary className="-mx-5">Com puc participar a la subhasta?</summary>
+                <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
+              </details>
 
-            <details>
-              <summary className="-mx-5">A on es destinaran els fons recollits?</summary>
-              <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
-            </details>
+              <details>
+                <summary className="-mx-5">A on es destinaran els fons recollits?</summary>
+                <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
+              </details>
+            </div>
           </RCol>
         </RRow>
         <RRow>

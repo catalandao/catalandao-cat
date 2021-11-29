@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router'
-import { CatDAOLogo } from '@/styles/assets/svgs/logos';
+import { CatDAOLogo, DAOLogo } from '@/styles/assets/svgs/logos';
 import LanguageSelector from './LanguageSelector';
 import NavItem from './NavItem';
 import { useTranslation } from '@/lib/i18n';
@@ -17,10 +17,11 @@ const Header = () => {
     <>
       {isHome && <HomeBanner />}
       <header className="sticky top-0 z-50 border-t border-b bg-white min-h-24">
+        <div className="lg:hidden ml-20 mt-4">
+          <DAOLogo className="w-15 h-15" />
+        </div>
         <Navigation>
-          <NavItem href="/">
-            <span className="hidden lg:block"><CatDAOLogo /></span>
-          </NavItem>
+          <NavItem className="hidden lg:block" href="/"><CatDAOLogo /></NavItem>
           <NavItem href="/">{t('common:header.home')}</NavItem>
           <NavItem href="/manifest">{t('common:header.manifest')}</NavItem>
           {/*<NavItem href="/eines">{t('common:header.tools')}</NavItem>*/}
