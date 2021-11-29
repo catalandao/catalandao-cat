@@ -17,17 +17,13 @@ const Badge = ({ children, className = '' }: Props) => (
 );
 
 const Login = () => {
-  const { activate, verified, verify, state, disconnect } = useLogin();
+  const { activate, connected, verified, verify, disconnect } = useLogin();
 
   if (verified) {
     return <Button onClick={() => disconnect()}>Desconectar</Button>;
   }
 
-  if (state === 'connecting') {
-    return <Button disabled>Connectant</Button>;
-  }
-
-  if (state === 'connected') {
+  if (connected) {
     return (<Button onClick={() => verify()}>Verify?</Button>);
   }
 

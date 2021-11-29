@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useWallet } from 'use-wallet';
-import Web3 from 'web3';
+import { useWeb3React } from '@web3-react/core';
 import Web3Token from 'web3-token';
+import { InjectedConnector } from '@web3-react/injected-connector';
 
+
+const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42] });
 
 export default function useLogin() {
-  const wallet = useWallet();
+  const { activate, account, connector, library } = useWeb3React();
   const [verified, setVerified] = useState(false);
-  const [address, setAddress] = useState<string | null>();
+  const connected = !!connector;
+
   // check local storage first
   useEffect(() => {
     const fx = async () => {
@@ -15,24 +18,19 @@ export default function useLogin() {
       if (stored) {
         const response = await fetch('/api/authorization', { headers: { Authorization: stored } });
         if (response.status === 200) {
-          const data = await response.json();
           setVerified(true);
-          setAddress(data.address);
         }
       }
     };
     fx();
   });
 
-  const activate = () => wallet.connect('injected');
   const verify = async () => {
-    const web3 = new Web3(wallet.ethereum);
-    const newToken = await Web3Token.sign((msg: unknown) => (<any>web3.eth.personal).sign(msg, wallet.account), '1d');
+    const newToken = await Web3Token.sign((msg: unknown) => (<Web3>library.eth.personal).sign(msg, account), '1d');
     const response = await fetch('/api/authorization', { headers: { Authorization: newToken } });
     if (response.status === 200) {
       localStorage.setItem('wet', newToken);
       setVerified(true);
-      setAddress(wallet.account);
     }
   };
 
@@ -41,6 +39,5 @@ export default function useLogin() {
     setVerified(false);
   };
 
-
-  return { activate, verified, verify, state: wallet.status, address, disconnect };
+  return { activate: () => activate(injected), verified, verify, address: account, disconnect, connected };
 }
