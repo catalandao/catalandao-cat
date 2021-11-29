@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import Web3Token from 'web3-token';
 import { InjectedConnector } from '@web3-react/injected-connector';
+import Web3 from 'web3';
 
 
 const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42] });
@@ -26,7 +27,7 @@ export default function useLogin() {
   });
 
   const verify = async () => {
-    const newToken = await Web3Token.sign((msg: unknown) => (<Web3>library.eth.personal).sign(msg, account), '1d');
+    const newToken = await Web3Token.sign((msg: unknown) => (<Web3>library).eth.personal.sign(msg, account), '1d');
     const response = await fetch('/api/authorization', { headers: { Authorization: newToken } });
     if (response.status === 200) {
       localStorage.setItem('wet', newToken);
