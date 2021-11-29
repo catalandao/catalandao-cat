@@ -35,7 +35,7 @@ const Footer = () => {
         <a href="https://twitter.com/catalandaoETH" target="_blank" rel="noreferrer">
           <LogoTwitter className="w-10 h-10 lg:w-14 lg:h-14" />
         </a>
-        <a href="hola@catalandao.cat" target="_blank">
+        <a href="mailto:hola@catalandao.cat" target="_blank" rel="noreferrer">
           <LogoEmail className="w-10 h-10 lg:w-14 lg:h-14" />
         </a>
       </nav>

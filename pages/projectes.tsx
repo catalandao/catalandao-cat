@@ -38,13 +38,14 @@ const RCol = ({ children, className = '' }: Props) => (
 );
 
 interface BtProps extends Props {
+  href: string;
   onClick?: React.MouseEventHandler;
 }
-const CtaButton = ({ children, onClick, className }: BtProps) => (
-  <button className={`${className} text-white text-sm lg:text-lg text-center py-2 px-4 lg:px-20 shadow-lg shadow-dark-700 bg-[#0E6FFF] rounded`} onClick={onClick}>{children}</button>
+const CtaLink = ({ children, href, className }: BtProps) => (
+  <a className={`${className} text-white text-sm lg:text-lg text-center py-2 px-4 lg:px-20 shadow-lg shadow-dark-700 bg-[#0E6FFF] rounded`} href={href} target="_blank" rel="noreferrer">{children}</a>
 );
-const SecondaryButton = ({ children, onClick, className }: BtProps) => (
-  <button className={`${className} text-white text-sm lg:text-lg text-center py-2 px-4 lg:px-20 shadow-lg shadow-dark-700 bg-[#FF4242] rounded`} onClick={onClick}>{children}</button>
+const SecondaryLink = ({ children, href, className }: BtProps) => (
+  <a className={`${className} text-white text-sm lg:text-lg text-center py-2 px-4 lg:px-20 shadow-lg shadow-dark-700 bg-[#FF4242] rounded`} href={href} target="_blank" rel="noreferrer">{children}</a>
 );
 
 interface ImgProps extends Omit<Props, 'children'> {
@@ -91,7 +92,7 @@ const Component = () => {
             </header>
             <p className="max-w-2xl">{t('projects:intro.text')}</p>
             <div className="my-10">
-              <CtaButton>{t('projects:intro.cta')}</CtaButton>
+              <CtaLink href="https://opensea.io/CatalanDAO">{t('projects:intro.cta')}</CtaLink>
               <div className="flex p-2 my-3">
                 <Link href="" className="text-xs lg:text-sm hover:underline">
                   <span className="mx-2">&#x2139;</span>{t('projects:intro.help.involvement')}</Link>
@@ -175,10 +176,6 @@ const Component = () => {
               <summary>A on es destinaran els fons recollits?</summary>
               <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
             </details>
-
-            {/*box-shadow: 7px 5px 20px rgba(0, 0, 0, 0.25);*/}
-
-
           </RCol>
         </RRow>
         <RRow>
@@ -190,8 +187,8 @@ const Component = () => {
               </RCol>
               <RCol className="flex flex-col">
                 {/* https://discord.com/invite/BNqJQXwtqA */}
-                <CtaButton>{t('projects:colophon.join.discord')}</CtaButton>
-                <SecondaryButton>{t('projects:colophon.join.wiki')}</SecondaryButton>
+                <CtaLink href="https://discord.com/invite/BNqJQXwtqA">{t('projects:colophon.join.discord')}</CtaLink>
+                <SecondaryLink href="#">{t('projects:colophon.join.wiki')}</SecondaryLink>
               </RCol>
             </Colophon>
           </RCol>
