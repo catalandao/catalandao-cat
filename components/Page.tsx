@@ -10,7 +10,7 @@ interface Props {
 const Page = ({ children, className = '' }: Props) => (
   <>
     <Header />
-    <main className={`${className} pt-20`}>
+    <main className={`${className} pt-5`}>
       {children}
     </main>
     <Footer />

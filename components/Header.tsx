@@ -20,12 +20,12 @@ const Header = () => {
         <Navigation>
           <NavItem href="/">
             <span className="hidden lg:block"><CatDAOLogo /></span>
-            <span className="lg:hidden">{t('common:header.home')}</span>
           </NavItem>
+          <NavItem href="/">{t('common:header.home')}</NavItem>
           <NavItem href="/manifest">{t('common:header.manifest')}</NavItem>
           {/*<NavItem href="/eines">{t('common:header.tools')}</NavItem>*/}
           {/*<NavItem href="/comunitat">{t('common:header.community')}</NavItem>*/}
-          <NavItem href="/projectes">{t('common:header.projects')}</NavItem>
+          <NavItem href="/projectes">{t('common:header.advent_nfts')}</NavItem>
           <NavItem href="mailto:hola@catalandao.cat">{t('common:header.contact')}</NavItem>
         </Navigation>
         <LanguageSelector />

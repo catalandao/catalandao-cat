@@ -17,7 +17,7 @@ interface Props {
 }
 
 const Title = ({ children, className = '' }: Props) => (
-  <h1 className={`${className} justify-center flex text-2xl lg:text-6xl my-12`}>{children}</h1>
+  <h1 className={`${className} justify-center flex text-2xl lg:text-5xl my-8`}>{children}</h1>
 );
 
 interface BlockProps extends Props {
@@ -25,7 +25,7 @@ interface BlockProps extends Props {
   colored?: boolean;
 }
 const Block = ({ id, children, colored, className = '' }: BlockProps) => (
-  <div id={id} className={`${className} space-y-6 p-2 lg:p-16 ${colored ? 'bg-[#FFD740]' : ''}`}>
+  <div id={id} className={`${className} space-y-6 p-2 lg:p-16 lg:py-5 ${colored ? 'bg-[#FFD740]' : ''}`}>
     {children}
   </div>
 );
@@ -42,10 +42,10 @@ interface BtProps extends Props {
   onClick?: React.MouseEventHandler;
 }
 const CtaLink = ({ children, href, className }: BtProps) => (
-  <a className={`${className} text-white text-sm lg:text-lg text-center py-2 px-4 lg:px-20 shadow-lg shadow-dark-700 bg-[#0E6FFF] rounded`} href={href} target="_blank" rel="noreferrer">{children}</a>
+  <a className={`${className} text-white text-sm lg:text-lg text-center py-2 px-4 lg:px-5 shadow-lg shadow-dark-700 bg-[#0E6FFF] rounded`} href={href} target="_blank" rel="noreferrer">{children}</a>
 );
 const SecondaryLink = ({ children, href, className }: BtProps) => (
-  <a className={`${className} text-white text-sm lg:text-lg text-center py-2 px-4 lg:px-20 shadow-lg shadow-dark-700 bg-[#FF4242] rounded`} href={href} target="_blank" rel="noreferrer">{children}</a>
+  <a className={`${className} text-white text-sm lg:text-lg text-center py-2 px-4 lg:px-5 shadow-lg shadow-dark-700 bg-[#FF4242] rounded`} href={href} target="_blank" rel="noreferrer">{children}</a>
 );
 
 interface ImgProps extends Omit<Props, 'children'> {
@@ -59,9 +59,9 @@ const Img = ({ src, caption, reversed, className = '' }: ImgProps) => {
   );
 
   return (
-    <figure>
+    <figure className={className}>
       {reversed && caption && <Caption />}
-      <div className={`${className} rounded-xl shadow-xl overflow-hidden`}>
+      <div className="rounded-xl shadow-xl overflow-hidden">
         <Image src={src} alt={caption} layout="responsive" objectFit="contain" />
       </div>
       {!reversed && caption && <Caption />}
@@ -88,12 +88,12 @@ const Component = () => {
           <RCol className="order-2 lg:order-1">
             <header>
               <span className="text-small text-[#AAA]">{t('projects:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
-              <Title>{t('projects:intro.label', { n: 2 })}</Title>
+              <h1 className="flex text-2xl lg:text-5xl my-8">{t('projects:intro.label', { n: 2 })}</h1>
             </header>
-            <p className="max-w-2xl">{t('projects:intro.text')}</p>
-            <div className="my-10">
+            <p className="max-w-2xl min-h-80">{t('projects:intro.text')}</p>
+            <div className="my-10 flex flex-col">
               <CtaLink href="https://opensea.io/CatalanDAO">{t('projects:intro.cta')}</CtaLink>
-              <div className="flex p-2 my-3">
+              <div className="flex flex-row justify-around p-2 my-3">
                 <Link href="" className="text-xs lg:text-sm hover:underline">
                   <span className="mx-2">&#x2139;</span>{t('projects:intro.help.involvement')}</Link>
                 <Link href="#faq" className="text-xs lg:text-sm hover:underline">
@@ -101,12 +101,12 @@ const Component = () => {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl lg:text-2xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
-              <span className="text-xl lg:text-2xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
+              <span className="text-xl lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
+              <span className="text-xl lg:text-xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
             </div>
           </RCol>
           <RCol className="order-1 lg:order-2">
-            <Img src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
+            <Img className="max-w-md" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
           </RCol>
         </RRow>
       </Block>
@@ -114,7 +114,7 @@ const Component = () => {
         <RRow>
           <RCol>
             <Title>{t('projects:listing.title')}</Title>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5 lg:gap-10">
               {[...new Array(24)].map((_, i) => (
                 <Img key={i} src={NFTPhoto} caption={t('projects:listing.item.title', { x: i + 1 })} reversed />
               ))}
@@ -157,23 +157,23 @@ const Component = () => {
         <RRow>
           <RCol>
             <Title>{t('projects:faq.title')}</Title>
-            <details>
-              <summary>Què és un NFT?</summary>
+            <details open>
+              <summary className="-mx-5">Què és un NFT?</summary>
               <p>NFT és l’acrònim de Non-Fungible Token, que podem traduir com Token No-Fungible. Els NFTs són certificats d’autenticitat basats en tecnologia de cadena de blocs (blockchain), que enregistra qualsevol tipus de format digital, qui n’és creador, qui propietari, l’ús que se’n pot fer i els privilegis que proporciona.</p>
             </details>
 
             <details>
-              <summary>Què és un NFT d’Advent de la CatalanDAO?</summary>
+              <summary className="-mx-5">Què és un NFT d’Advent de la CatalanDAO?</summary>
               <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
             </details>
 
             <details>
-              <summary>Com puc participar a la subhasta?</summary>
+              <summary className="-mx-5">Com puc participar a la subhasta?</summary>
               <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
             </details>
 
             <details>
-              <summary>A on es destinaran els fons recollits?</summary>
+              <summary className="-mx-5">A on es destinaran els fons recollits?</summary>
               <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
             </details>
           </RCol>
@@ -185,7 +185,7 @@ const Component = () => {
                 <h3 className="text-xl lg:text-2xl">{t('projects:colophon.title')}</h3>
                 <p>{t('projects:colophon.text')}</p>
               </RCol>
-              <RCol className="flex flex-col">
+              <RCol className="flex flex-col lg:px-34">
                 {/* https://discord.com/invite/BNqJQXwtqA */}
                 <CtaLink href="https://discord.com/invite/BNqJQXwtqA">{t('projects:colophon.join.discord')}</CtaLink>
                 <SecondaryLink href="#">{t('projects:colophon.join.wiki')}</SecondaryLink>
