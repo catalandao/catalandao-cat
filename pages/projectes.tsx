@@ -8,8 +8,14 @@ import { dateOptions } from '../lib/i18n';
 import NFTPhoto from '../public/images/NFT-destacat.png';
 import PhotoKlas from '../public/images/Foto-Klas.png';
 import PhotoCaboSanRoque from '../public/images/Foto-CaboSanRoque.png';
+import UnveiledTio1 from '../public/images/unveiled-tio1.jpeg';
+import UnveiledTio2 from '../public/images/unveiled-tio2.jpeg';
 import { Trans } from 'react-i18next';
 
+const unveiled = {
+  odd: UnveiledTio1,
+  even: UnveiledTio2,
+} as const;
 
 interface Props {
   children: React.ReactNode;
@@ -31,7 +37,7 @@ const Block = ({ id, children, colored, className = '' }: BlockProps) => (
 );
 
 const RRow = ({ children, className = '' }: Props) => (
-  <div className={`${className} flex lg:flex-row lg:space-x-10 w-full p-1 lg:p-6 box-border flex-col mx-auto max-w-screen-xl`}>{children}</div>
+  <div className={`${className} max-w-1840px flex lg:flex-row lg:space-x-10 w-full p-1 lg:p-6 box-border flex-col mx-auto max-w-screen-xl`}>{children}</div>
 );
 const RCol = ({ children, className = '' }: Props) => (
   <div className={`${className} flex-1 px-3 lg:p-6 space-y-6`}>{children}</div>
@@ -67,6 +73,20 @@ const Img = ({ src, caption, reversed, className = '' }: ImgProps) => {
       {!reversed && caption && <Caption />}
     </figure>
   );
+};
+
+interface NFTTioProps {
+  src?: string; // source of the revealed image, if missing a placeholder its set
+  index: number; // position on the grid 1-24
+  caption?: string;
+}
+const NFTTio = ({
+  index,
+  src,
+  caption,
+}: NFTTioProps) => {
+  const source = src ?? unveiled[index % 2 === 0 ? 'even' : 'odd'];
+  return <Img src={source} caption={caption} reversed />;
 };
 
 const Colophon = ({ children, className = '' }: Props) => (
@@ -113,7 +133,7 @@ const Component = () => {
             </div>
           </RCol>
           <RCol className="hidden lg:block">
-          <Img className="max-w-md" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
+            <Img className="max-w-md mx-auto" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
           </RCol>
         </RRow>
       </Block>
@@ -123,7 +143,7 @@ const Component = () => {
             <Title>{t('projects:listing.title')}</Title>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5 lg:gap-10">
               {[...new Array(24)].map((_, i) => (
-               <Img key={i} src={NFTPhoto} caption={t('projects:listing.item.title', { x: i + 1 })} reversed />
+                <NFTTio key={i} index={i} caption={t('projects:listing.item.title', { x: i + 1 })} />
               ))}
             </div>
           </RCol>
@@ -197,10 +217,9 @@ const Component = () => {
               <h3 className="text-xl lg:text-2xl">{t('projects:colophon.title')}</h3>
                 <p>{t('projects:colophon.text')}</p>
               </RCol>
-              <RCol className="flex flex-col ">
-                {/* https://discord.com/invite/BNqJQXwtqA */}
+              <RCol className="flex flex-col lg:px-34">
                 <CtaLink href="https://discord.com/invite/BNqJQXwtqA">{t('projects:colophon.join.discord')}</CtaLink>
-                <SecondaryLink href="#">{t('projects:colophon.join.wiki')}</SecondaryLink>
+                <SecondaryLink href="https://www.notion.so/catalandao/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996">{t('projects:colophon.join.wiki')}</SecondaryLink>
               </RCol>
             </Colophon>
           </RCol>
