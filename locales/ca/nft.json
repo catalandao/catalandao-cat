@@ -1,7 +1,7 @@
 {
   "intro.date": "{{date, datetime}}",
   "intro.label": "Atrapa el tió número #{{ n }}",
-  "intro.text": "CatalanDAO presenta una sèrie exclusiva de 24 NFTs que donen dret a la propietat d’una obra única i original de l’artista plàstic Klas Ernflo i accés exclusiu a una nadala dels artistes sonors CaboSanRoque. Els fons recaptats s’utilitzaran per finançar projectes al voltant de la cultura i llengua catalana, desenvolupar projectes socials experimentant amb tecnologies descentralitzades i remunerar de forma justa als artistes. Informa’t més en les",  "intro.cta": "Aconsegueix-lo!",
+  "intro.text": "CatalanDAO presenta una sèrie exclusiva de 24 NFTs que donen dret a la propietat d’una obra única i original de l’artista plàstic Klas Ernflo i accés exclusiu a una nadala dels artistes sonors CaboSanRoque.\n\n Els fons recaptats s’utilitzaran per finançar projectes al voltant de la cultura i llengua catalana, desenvolupar projectes socials experimentant amb tecnologies descentralitzades i remunerar de forma justa als artistes. Informa’t més en les ",  "intro.cta": "Aconsegueix-lo!",
   "intro.link": "Preguntes Freqüents",
   "intro.help.involvement": "Com participar",
   "intro.help.faq": "Preguntes freqüents",
