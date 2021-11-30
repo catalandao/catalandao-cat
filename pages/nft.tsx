@@ -5,7 +5,6 @@ import Link from '@/components/Link';
 import Table from '@/components/Table';
 import { useTranslation } from '@/lib/i18n';
 import { dateOptions } from '../lib/i18n';
-import NFTPhoto from '../public/images/NFT-destacat.png';
 import PhotoKlas from '../public/images/Foto-Klas.png';
 import PhotoCaboSanRoque from '../public/images/Foto-CaboSanRoque.png';
 import UnveiledTio1 from '../public/images/unveiled-tio1.jpeg';
@@ -65,9 +64,9 @@ const Img = ({ src, caption, reversed, className = '' }: ImgProps) => {
 
   return (
     <figure className={`${className} ${!reversed ? ' ml-auto' : ''}`}>
-    {reversed && caption && <Caption />}
-    <div className="rounded-xl shadow-xl overflow-hidden">
-      <Image src={src} alt={caption} layout="responsive" objectFit="contain" />
+      {reversed && caption && <Caption />}
+      <div className="rounded-xl shadow-xl overflow-hidden">
+        <Image src={src} alt={caption} layout="responsive" objectFit="contain" />
       </div>
       {!reversed && caption && <Caption />}
     </figure>
@@ -106,36 +105,42 @@ const Component = () => {
         <RRow>
           <RCol>
             <header>
-            <span className="text-1xl text-[#777]">{t('nft:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
-            <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: 2 })}</h1>
+              <span className="text-1xl text-[#777]">{t('nft:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
+              <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: 2 })}</h1>
             </header>
             <div className="block lg:hidden">
-            <Img className="max-w-md mx-auto ml-auto" src={NFTPhoto} caption={t('nft:intro.help.log_count', { unit: 2, total: 24 })} />
+              <Img className="max-w-md mx-auto ml-auto" src={unveiled.odd} caption={t('nft:intro.coming_soon')} />
+              {/* <Img className="max-w-md" src={NFTPhoto} caption={t('nft:intro.help.log_count', { unit: 2, total: 24 })} /> */ /* amagar fins que començi */}
+              {/* // amagar fins la subhasta
               <div className="flex flex-col">
-              <span className="text-xl lg:text-xl">{t('nft:intro.help.price', { price: 0.34 })}</span>
+                <span className="text-xl lg:text-xl">{t('nft:intro.help.price', { price: 0.34 })}</span>
                 <span className="text-xl lg:text-xl">{t('nft:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
               </div>
+              */}
             </div>
             <p className="max-w-2xl lg:min-h-80">
               {t('nft:intro.text')}
               <Link className="underline" newTab={true} href="https://www.notion.so/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996"> {t('nft:intro.link')}</Link>.
               </p>
             <div className="my-10 flex flex-col">
-            <CtaLink href="https://opensea.io/CatalanDAO">{t('nft:intro.cta')}</CtaLink>
+              <CtaLink href="https://opensea.io/CatalanDAO">{t('nft:intro.cta')}</CtaLink>
               <div className="flex flex-row justify-around p-2 my-3">
-                <Link newTab={true} href="https://www.notion.so/catalandao/Com-participar-de-la-subhasta-dels-NFT-d-advent-02422855608b4385b75ba5dca4101afb" className="text-sm hover:underline">
-                <span className="mx-2">&#x2139;</span>{t('nft:intro.help.involvement')}</Link>
-                <Link href="#faq" className="text-sm hover:underline">
+                <Link newTab={true} href="https://www.notion.so/catalandao/Com-participar-de-la-subhasta-dels-NFT-d-advent-02422855608b4385b75ba5dca4101afb" className="text-sm lg:text-sm hover:underline">
+                  <span className="mx-2">&#x2139;</span>{t('nft:intro.help.involvement')}</Link>
+                <Link href="#faq" className="text-sm lg:text-sm hover:underline">
                   <span className="mx-2">&#x2753;</span>{t('nft:intro.help.faq')}</Link>
               </div>
             </div>
+            {/* // amagar fins la subhasta
             <div className="flex flex-col hidden lg:block">
             <span className="text-xl flex lg:text-xl">{t('nft:intro.help.price', { price: 0.34 })}</span>
               <span className="text-xl flex lg:text-xl">{t('nft:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
             </div>
+            */}
           </RCol>
           <RCol className="hidden lg:block">
-            <Img className="max-w-md" src={NFTPhoto} caption={t('nft:intro.help.log_count', { unit: 2, total: 24 })} />
+            <Img className="max-w-md" src={unveiled.odd} caption={t('nft:intro.coming_soon')} />
+            {/* <Img className="max-w-md" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} /> */ /* amagar fins que començi */}
           </RCol>
         </RRow>
       </Block>
@@ -237,7 +242,7 @@ const Component = () => {
           <RCol className="space-y-6">
             <Colophon>
               <RCol>
-              <h3 className="text-xl lg:text-2xl">{t('nft:colophon.title')}</h3>
+                <h3 className="text-xl lg:text-2xl">{t('nft:colophon.title')}</h3>
                 <p>{t('nft:colophon.text')}</p>
               </RCol>
               <RCol className="flex flex-col my-auto mt-6 lg:my-auto space-y-3">

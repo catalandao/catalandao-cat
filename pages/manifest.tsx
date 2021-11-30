@@ -1,5 +1,6 @@
 import Page from '@/components/Page';
 import { useTranslation } from '@/lib/i18n';
+import { Trans } from 'react-i18next';
 
 const Component = () => {
   const { t } = useTranslation();
@@ -21,7 +22,7 @@ const Component = () => {
   );
 
   return (
-    <Page className="bg-[#EE292E] bg-opacity-80 space-y-4 px-4 lg:px-20 py-8 text-base lg:text-lg">
+    <Page className="manifest bg-[#EE292E] bg-opacity-80 space-y-4 px-4 lg:px-20 py-8 text-xs lg:text-lg">
       <Block className="max-w-1840px mx-auto">
         <h1 className="text-4xl lg:text-8xl">{t('manifest:intro.title')}</h1>
 
@@ -29,7 +30,9 @@ const Component = () => {
 
         <p>{t('manifest:intro.text')}</p>
 
-        <p>{t('manifest:section.first')}</p>
+        <Trans i18nKey="manifest:section.first">
+          1/ La CatalanDAO s'inscriu en la trajectòria històrica d'autogestió de béns comuns als Països Catalans, que inclou els emprius i els alous medievals, el Tribunal de les Aigües de València o les experiències de col·lectivització republicana. Els milers d'empreses del moviment cooperativista, l'activitat del Tercer Sector, que representa vora del 10% del PIB de Catalunya, o iniciatives com <a rel="noreferrer" href="http://guifi.net" target="_blank">Guifi.net</a>, la xarxa de telecomunicacions de comuns més gran del món, demostren la vigència d'aquesta manera de fer.
+        </Trans>
 
         <p>{t('manifest:section.second')}</p>
 
@@ -49,7 +52,7 @@ const Component = () => {
 
         <p>{t('manifest:outro.date')}</p>
       </Block>
-    </Page>
+    </Page >
   );
 };
 

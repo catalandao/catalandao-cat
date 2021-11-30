@@ -8,6 +8,7 @@
   "intro.help.price": "Preu actual: {{price, number(maximumFractionDigits: 2)}}ΞTH",
   "intro.help.time_remaining": "Temps restant: {{h}}h {{m}}' {{s}}\"",
   "intro.help.log_count": "💩 Tió #{{ unit }} de #{{ total }}",
+  "intro.coming_soon": "Presta atenció, avïat comença!",
   "listing.title": "🎄 Calendari d’Advent 🎄",
   "listing.item.title": "💩 Tió #{{x}}",
   "ranking.title": "🤘 Compradors 🤘",
