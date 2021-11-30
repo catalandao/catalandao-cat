@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import { CatDAOLogo, DAOLogo } from '@/styles/assets/svgs/logos';
 import LanguageSelector from './LanguageSelector';
 import NavItem from './NavItem';
