@@ -26,7 +26,7 @@ const Component = () => {
       <Block className="max-w-1840px mx-auto">
         <h1 className="text-4xl lg:text-8xl">{t('manifest:intro.title')}</h1>
 
-        <p className="text-small">{t('manifest:intro.introduction')}</p>
+        <p>{t('manifest:intro.introduction')}</p>
 
         <p>{t('manifest:intro.text')}</p>
 

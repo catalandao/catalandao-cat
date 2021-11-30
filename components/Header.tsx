@@ -28,7 +28,7 @@ const Header = () => {
             <NavItem href="/manifest">{t('common:header.manifest')}</NavItem>
             {/*<NavItem href="/eines">{t('common:header.tools')}</NavItem>*/}
             {/*<NavItem href="/comunitat">{t('common:header.community')}</NavItem>*/}
-            <NavItem href="/projectes">{t('common:header.advent_nfts')}</NavItem>
+            <NavItem href="/nft">{t('common:header.advent_nfts')}</NavItem>
             <NavItem href="mailto:hola@catalandao.cat">{t('common:header.contact')}</NavItem>
           </Navigation>
           <LanguageSelector />

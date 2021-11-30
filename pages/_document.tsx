@@ -2,7 +2,7 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
 const Document = () => (
-  <Html>
+  <Html style={ { whiteSpace: 'pre-line' } }>
     <Head />
     <body>
       <Main />
