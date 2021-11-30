@@ -23,7 +23,7 @@ const Header = () => {
           </div>
           <Navigation>
             {/* https://www.notion.so/catalandao/Canvis-web-nft-d-advent-41dcd56d5e8f44efba036b785193489b */}
-            <NavItem className="hidden lg:block" href="/"><CatDAOLogo /></NavItem>
+            <NavItem className="hidden lg:block" href="/manifest"><CatDAOLogo /></NavItem>
             {/* <NavItem href="/">{t('common:header.home')}</NavItem> */}
             <NavItem href="/manifest">{t('common:header.manifest')}</NavItem>
             {/*<NavItem href="/eines">{t('common:header.tools')}</NavItem>*/}

@@ -2,13 +2,14 @@ import BaseLink from 'next/link';
 
 interface Props {
   href: string;
+  newTab?: boolean;
   children: React.ReactNode;
   className?: string;
 }
 
-const Link = ({ href, children, className = '' }: Props) => (
+const Link = ({ href, children, className = '', newTab = false }: Props) => (
   <BaseLink href={href}>
-    <a className={className}>{children}</a>
+    <a target={newTab ? '_blank' : ''} className={className}>{children}</a>
   </BaseLink>
 );
 
