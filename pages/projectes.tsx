@@ -121,7 +121,7 @@ const Component = () => {
             <div className="my-10 flex flex-col">
             <CtaLink href="https://opensea.io/CatalanDAO">{t('projects:intro.cta')}</CtaLink>
               <div className="flex flex-row justify-around p-2 my-3">
-                <Link href="" className="text-xs lg:text-sm hover:underline">
+                <Link newTab={true} href="https://www.notion.so/catalandao/Com-participar-de-la-subhasta-dels-NFT-d-advent-02422855608b4385b75ba5dca4101afb" className="text-xs lg:text-sm hover:underline">
                 <span className="mx-2">&#x2139;</span>{t('projects:intro.help.involvement')}</Link>
                 <Link href="#faq" className="text-xs lg:text-sm hover:underline">
                   <span className="mx-2">&#x2753;</span>{t('projects:intro.help.faq')}</Link>
@@ -133,7 +133,7 @@ const Component = () => {
             </div>
           </RCol>
           <RCol className="hidden lg:block">
-            <Img className="max-w-md mx-auto" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
+            <Img className="max-w-md" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
           </RCol>
         </RRow>
       </Block>
