@@ -17,7 +17,7 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: '/projectes',
+        destination: '/manifest',
         permanent: false,
       },
     ]
