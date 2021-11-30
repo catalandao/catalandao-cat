@@ -122,7 +122,7 @@ const Component = () => {
             </div>
             <p className="max-w-2xl lg:min-h-80">
               {t('nft:intro.text')}
-              <Link className="underline" newTab={true} href="https://www.notion.so/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996"> {t('nft:intro.link')}</Link>.
+              <Link className="underline" newTab={true} href="https://www.notion.so/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996">{t('nft:intro.link')}</Link>.
             </p>
             <div className="my-10 flex flex-col">
               <CtaLink href="https://opensea.io/CatalanDAO">{t('nft:intro.cta')}</CtaLink>
