@@ -23,7 +23,7 @@ interface Props {
 }
 
 const Title = ({ children, className = '' }: Props) => (
-  <h1 className={`${className} justify-center flex text-2xl lg:text-5xl my-8`}>{children}</h1>
+<h1 className={`${className} justify-center flex text-2xl lg:text-5xl my-8`}>{children}</h1>
 );
 
 interface BlockProps extends Props {
@@ -65,10 +65,10 @@ const Img = ({ src, caption, reversed, className = '' }: ImgProps) => {
   );
 
   return (
-    <figure className={className}>
-      {reversed && caption && <Caption />}
-      <div className="rounded-xl shadow-xl overflow-hidden">
-        <Image src={src} alt={caption} layout="responsive" objectFit="contain" />
+    <figure className={`${className} ${!reversed ? ' ml-auto' : ''}`}>
+    {reversed && caption && <Caption />}
+    <div className="rounded-xl shadow-xl overflow-hidden">
+      <Image src={src} alt={caption} layout="responsive" objectFit="contain" />
       </div>
       {!reversed && caption && <Caption />}
     </figure>
@@ -107,28 +107,28 @@ const Component = () => {
         <RRow>
           <RCol>
             <header>
-              <span className="text-small text-[#AAA]">{t('projects:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
-              <h1 className="flex text-2xl lg:text-5xl my-8">{t('projects:intro.label', { n: 2 })}</h1>
+            <span className="text-small text-[#AAA]">{t('projects:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
+            <h1 className="flex text-2xl lg:text-5xl my-8">{t('projects:intro.label', { n: 2 })}</h1>
             </header>
             <div className="block lg:hidden">
-              <Img className="max-w-md mx-auto" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
+            <Img className="max-w-md mx-auto ml-auto" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
               <div className="flex flex-col">
-                <span className="text-xl lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
+              <span className="text-xl lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
                 <span className="text-xl lg:text-xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
               </div>
             </div>
             <p className="max-w-2xl lg:min-h-80">{t('projects:intro.text')}</p>
             <div className="my-10 flex flex-col">
-              <CtaLink href="https://opensea.io/CatalanDAO">{t('projects:intro.cta')}</CtaLink>
+            <CtaLink href="https://opensea.io/CatalanDAO">{t('projects:intro.cta')}</CtaLink>
               <div className="flex flex-row justify-around p-2 my-3">
                 <Link href="" className="text-xs lg:text-sm hover:underline">
-                  <span className="mx-2">&#x2139;</span>{t('projects:intro.help.involvement')}</Link>
+                <span className="mx-2">&#x2139;</span>{t('projects:intro.help.involvement')}</Link>
                 <Link href="#faq" className="text-xs lg:text-sm hover:underline">
                   <span className="mx-2">&#x2753;</span>{t('projects:intro.help.faq')}</Link>
               </div>
             </div>
             <div className="flex flex-col hidden lg:block">
-              <span className="text-xl flex lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
+            <span className="text-xl flex lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
               <span className="text-xl flex lg:text-xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
             </div>
           </RCol>
@@ -183,38 +183,38 @@ const Component = () => {
           </RCol>
         </RRow>
       </Block>
-      <Block id="faq" colored>
+      <Block id="faq" colored className="space-y-0">
         <RRow>
           <RCol>
-            <div className="p-4 lg:p-0 space-y-6">
-              <Title>{t('projects:faq.title')}</Title>
+            <div className="p-4 space-y-4">
+              <Title className="lg:mb-22">{t('projects:faq.title')}</Title>
               <details open>
-                <summary className="-mx-5">Què és un NFT?</summary>
+                <summary className="-mx-4">Què és un NFT?</summary>
                 <p>NFT és l’acrònim de Non-Fungible Token, que podem traduir com Token No-Fungible. Els NFTs són certificats d’autenticitat basats en tecnologia de cadena de blocs (blockchain), que enregistra qualsevol tipus de format digital, qui n’és creador, qui propietari, l’ús que se’n pot fer i els privilegis que proporciona.</p>
               </details>
 
               <details>
-                <summary className="-mx-5">Què és un NFT d’Advent de la CatalanDAO?</summary>
+                <summary className="-mx-4">Què és un NFT d’Advent de la CatalanDAO?</summary>
                 <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
               </details>
 
               <details>
-                <summary className="-mx-5">Com puc participar a la subhasta?</summary>
+                <summary className="-mx-4">Com puc participar a la subhasta?</summary>
                 <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
               </details>
 
               <details>
-                <summary className="-mx-5">A on es destinaran els fons recollits?</summary>
+                <summary className="-mx-4">A on es destinaran els fons recollits?</summary>
                 <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
               </details>
             </div>
           </RCol>
         </RRow>
-        <RRow>
+        <RRow className="lg:w-250">
           <RCol>
             <Colophon>
               <RCol>
-                <h3 className="text-xl lg:text-2xl">{t('projects:colophon.title')}</h3>
+              <h3 className="text-xl lg:text-2xl">{t('projects:colophon.title')}</h3>
                 <p>{t('projects:colophon.text')}</p>
               </RCol>
               <RCol className="flex flex-col lg:px-34">
