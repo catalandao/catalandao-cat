@@ -111,7 +111,8 @@ const Component = () => {
               <h1 className="flex text-2xl lg:text-5xl my-8">{t('projects:intro.label', { n: 2 })}</h1>
             </header>
             <div className="block lg:hidden">
-              <Img className="max-w-md mx-auto ml-auto" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
+              <Img className="max-w-md" src={unveiled.odd} caption={t('projects:intro.coming_soon')} />
+              {/* <Img className="max-w-md" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} /> */ /* amagar fins que començi */}
               {/* // amagar fins la subhasta
               <div className="flex flex-col">
                 <span className="text-xl lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
