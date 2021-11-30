@@ -199,9 +199,9 @@ const Component = () => {
                 <summary className="-mx-4 text-base lg:text-lg font-semibold">{t('nft:faq.summary.first')}</summary>
                 <p className="mt-4">
                   {t('nft:faq.detail.first.part1')}
-                  <a className="underline" href="https://www.notion.so/catalandao/Manifest-de-la-CatalanDAO-ab6f1e9a0f3342a79cfd18e7e4f7351b">Manifest de la CatalanDAO</a>
+                  <Link newTab={true} className="underline" href="https://www.notion.so/catalandao/Manifest-de-la-CatalanDAO-ab6f1e9a0f3342a79cfd18e7e4f7351b">Manifest de la CatalanDAO</Link>
                   {t('nft:faq.detail.first.part2')}
-                  <a className="underline" href="https://discord.gg/BNqJQXwtqA">Discord</a>
+                  <Link newTab={true} className="underline" href="https://discord.gg/BNqJQXwtqA">Discord</Link>
                 </p>
               </details>
 
@@ -224,9 +224,9 @@ const Component = () => {
                 <summary className="-mx-4 text-base lg:text-lg font-semibold">{t('nft:faq.summary.fith')}</summary>
                 <p className="mt-4">
                   {t('nft:faq.detail.fith.part1')}
-                  <a className="underline" href="https://polygon.technology/">Polygon</a>
+                  <Link newTab={true} className="underline" href="https://polygon.technology/">Polygon</Link>
                   {t('nft:faq.detail.fith.part2')}
-                  <a className="underline" href="https://discord.gg/BNqJQXwtqA">Discord</a>
+                  <Link newTab={true} className="underline" href="https://discord.gg/BNqJQXwtqA">Discord</Link>
                   {t('nft:faq.detail.fith.part3')}
                 </p>
               </details>
