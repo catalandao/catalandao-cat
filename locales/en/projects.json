@@ -7,6 +7,7 @@
   "intro.help.faq": "F.A.Q.",
   "intro.help.price": "Current price: {{price, number(maximumFractionDigits: 2)}}ΞTH",
   "intro.help.time_remaining": "Time remaining: {{h}}h {{m}}' {{s}}\"",
+  "intro.coming_soon": "Do not blink, it's about to start!",
   "intro.help.log_count": "💩 Log #{{ unit }} from #{{ total }}",
   "listing.title": "🎄 Adent Calendar 🎄",
   "listing.item.title": "💩 Log #{{x}}",

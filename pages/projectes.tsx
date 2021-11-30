@@ -23,7 +23,7 @@ interface Props {
 }
 
 const Title = ({ children, className = '' }: Props) => (
-<h1 className={`${className} justify-center flex text-2xl lg:text-5xl my-8`}>{children}</h1>
+  <h1 className={`${className} justify-center flex text-2xl lg:text-5xl my-8`}>{children}</h1>
 );
 
 interface BlockProps extends Props {
@@ -66,9 +66,9 @@ const Img = ({ src, caption, reversed, className = '' }: ImgProps) => {
 
   return (
     <figure className={`${className} ${!reversed ? ' ml-auto' : ''}`}>
-    {reversed && caption && <Caption />}
-    <div className="rounded-xl shadow-xl overflow-hidden">
-      <Image src={src} alt={caption} layout="responsive" objectFit="contain" />
+      {reversed && caption && <Caption />}
+      <div className="rounded-xl shadow-xl overflow-hidden">
+        <Image src={src} alt={caption} layout="responsive" objectFit="contain" />
       </div>
       {!reversed && caption && <Caption />}
     </figure>
@@ -107,33 +107,34 @@ const Component = () => {
         <RRow>
           <RCol>
             <header>
-            <span className="text-small text-[#AAA]">{t('projects:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
-            <h1 className="flex text-2xl lg:text-5xl my-8">{t('projects:intro.label', { n: 2 })}</h1>
+              <span className="text-small text-[#AAA]">{t('projects:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
+              <h1 className="flex text-2xl lg:text-5xl my-8">{t('projects:intro.label', { n: 2 })}</h1>
             </header>
             <div className="block lg:hidden">
-            <Img className="max-w-md mx-auto ml-auto" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
+              <Img className="max-w-md mx-auto ml-auto" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
               <div className="flex flex-col">
-              <span className="text-xl lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
+                <span className="text-xl lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
                 <span className="text-xl lg:text-xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
               </div>
             </div>
             <p className="max-w-2xl lg:min-h-80">{t('projects:intro.text')}</p>
             <div className="my-10 flex flex-col">
-            <CtaLink href="https://opensea.io/CatalanDAO">{t('projects:intro.cta')}</CtaLink>
+              <CtaLink href="https://opensea.io/CatalanDAO">{t('projects:intro.cta')}</CtaLink>
               <div className="flex flex-row justify-around p-2 my-3">
                 <Link newTab={true} href="https://www.notion.so/catalandao/Com-participar-de-la-subhasta-dels-NFT-d-advent-02422855608b4385b75ba5dca4101afb" className="text-xs lg:text-sm hover:underline">
-                <span className="mx-2">&#x2139;</span>{t('projects:intro.help.involvement')}</Link>
+                  <span className="mx-2">&#x2139;</span>{t('projects:intro.help.involvement')}</Link>
                 <Link href="#faq" className="text-xs lg:text-sm hover:underline">
                   <span className="mx-2">&#x2753;</span>{t('projects:intro.help.faq')}</Link>
               </div>
             </div>
             <div className="flex flex-col hidden lg:block">
-            <span className="text-xl flex lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
+              <span className="text-xl flex lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
               <span className="text-xl flex lg:text-xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
             </div>
           </RCol>
           <RCol className="hidden lg:block">
-            <Img className="max-w-md" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
+            <Img className="max-w-md" src={unveiled.odd} caption={t('projects:intro.coming_soon')} />
+            {/* <Img className="max-w-md" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} /> */ /* amagar fins que començi */}
           </RCol>
         </RRow>
       </Block>
@@ -214,7 +215,7 @@ const Component = () => {
           <RCol>
             <Colophon>
               <RCol>
-              <h3 className="text-xl lg:text-2xl">{t('projects:colophon.title')}</h3>
+                <h3 className="text-xl lg:text-2xl">{t('projects:colophon.title')}</h3>
                 <p>{t('projects:colophon.text')}</p>
               </RCol>
               <RCol className="flex flex-col lg:px-34">
