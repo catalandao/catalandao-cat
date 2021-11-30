@@ -112,10 +112,12 @@ const Component = () => {
             </header>
             <div className="block lg:hidden">
               <Img className="max-w-md mx-auto ml-auto" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
+              {/* // amagar fins la subhasta
               <div className="flex flex-col">
                 <span className="text-xl lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
                 <span className="text-xl lg:text-xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
               </div>
+              */}
             </div>
             <p className="max-w-2xl lg:min-h-80">{t('projects:intro.text')}</p>
             <div className="my-10 flex flex-col">
@@ -127,10 +129,12 @@ const Component = () => {
                   <span className="mx-2">&#x2753;</span>{t('projects:intro.help.faq')}</Link>
               </div>
             </div>
+            {/* // amagar fins la subhasta
             <div className="flex flex-col hidden lg:block">
               <span className="text-xl flex lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
               <span className="text-xl flex lg:text-xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
             </div>
+            */}
           </RCol>
           <RCol className="hidden lg:block">
             <Img className="max-w-md" src={unveiled.odd} caption={t('projects:intro.coming_soon')} />
