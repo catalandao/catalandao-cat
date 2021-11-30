@@ -9,6 +9,8 @@ import PhotoKlas from '../public/images/Foto-Klas.png';
 import PhotoCaboSanRoque from '../public/images/Foto-CaboSanRoque.png';
 import UnveiledTio1 from '../public/images/unveiled-tio1.jpeg';
 import UnveiledTio2 from '../public/images/unveiled-tio2.jpeg';
+import { Trans } from 'react-i18next';
+import { LogoInstagram, LogoTwitter } from '@/styles/assets/svgs/logos';
 
 const unveiled = {
   odd: UnveiledTio1,
@@ -21,7 +23,7 @@ interface Props {
 }
 
 const Title = ({ children, className = '' }: Props) => (
-<h1 className={`${className} justify-center flex text-3xl lg:text-5xl my-8`}>{children}</h1>
+  <h1 className={`${className} justify-center flex text-3xl lg:text-5xl my-8`}>{children}</h1>
 );
 
 interface BlockProps extends Props {
@@ -106,7 +108,7 @@ const Component = () => {
           <RCol>
             <header>
               <span className="text-1xl text-[#777]">{t('nft:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
-              <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: 2 })}</h1>
+              <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: 1 })}</h1>
             </header>
             <div className="block lg:hidden">
               <Img className="max-w-md mx-auto ml-auto" src={unveiled.odd} caption={t('nft:intro.coming_soon')} />
@@ -121,7 +123,7 @@ const Component = () => {
             <p className="max-w-2xl lg:min-h-80">
               {t('nft:intro.text')}
               <Link className="underline" newTab={true} href="https://www.notion.so/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996"> {t('nft:intro.link')}</Link>.
-              </p>
+            </p>
             <div className="my-10 flex flex-col">
               <CtaLink href="https://opensea.io/CatalanDAO">{t('nft:intro.cta')}</CtaLink>
               <div className="flex flex-row justify-around p-2 my-3">
@@ -187,14 +189,41 @@ const Component = () => {
             <Img src={PhotoKlas} />
             <header className="text-2xl">{t('nft:artists.klas.title')}</header>
             <p>{t('nft:artists.klas.description')}</p>
-          </RCol>
+            <div className="lg:block flex space-y-0 lg:space-y-3 items-center p-2 space-x-5 lg:space-x-0 pb-10">
+              <p><a href="https://klasherbert.com/" target="_blank" rel="noreferrer" className="underline underline-black"><span className="mr-2">🌎</span>https://klasherbert.com/</a></p>
+              <p>
+                <a href="https://instagram.com/klasherbert" target="_blank" rel="noreferrer" className="inline-flex items-center underline underline-black">
+                  <LogoInstagram className="w-5 h-5 mr-2" />klasherbert
+                </a>
+              </p>
+              <p>
+                <a href="https://twitter.com/klasherbert" target="_blank" rel="noreferrer" className="inline-flex items-center underline underline-black">
+                  <LogoTwitter className="w-5 h-5 mr-2 fill-[#1d9bf0]" />klasherbert
+                </a>
+              </p>
+            </div>
+          </RCol >
           <RCol>
             <Img src={PhotoCaboSanRoque} />
             <header className="text-2xl">{t('nft:artists.cabo_san_roque.title')}</header>
             <p>{t('nft:artists.cabo_san_roque.description')}</p>
+
+            <div className="lg:block flex space-y-0 lg:space-y-3 items-center p-2 space-x-5 lg:space-x-0 pb-10">
+              <p><a href="https://cabosanroque.com/" target="_blank" rel="noreferrer" className="underline underline-black"><span className="mr-2">🌎</span>http://cabosanroque.com/</a></p>
+              <p>
+                <a href="https://instagram.com/cabosanroque" target="_blank" rel="noreferrer" className="inline-flex items-center underline underline-black">
+                  <LogoInstagram className="w-5 h-5 mr-2" />cabosanroque
+                </a>
+              </p>
+              <p>
+                <a href="https://twitter.com/cabosanroque" target="_blank" rel="noreferrer" className="inline-flex items-center underline underline-black">
+                  <LogoTwitter className="w-5 h-5 mr-2 fill-[#1d9bf0]" />cabosanroque
+                </a>
+              </p>
+            </div>
           </RCol>
-        </RRow>
-      </Block>
+        </RRow >
+      </Block >
       <Block id="faq" colored className="space-y-0">
         <Title>{t('nft:faq.title')}</Title>
         <RRow>
@@ -253,7 +282,7 @@ const Component = () => {
           </RCol>
         </RRow>
       </Block>
-    </Page>
+    </Page >
   );
 };
 
