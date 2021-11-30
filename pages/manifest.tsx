@@ -21,11 +21,11 @@ const Component = () => {
   );
 
   return (
-    <Page className="bg-[#EE292E] bg-opacity-80 space-y-4 px-4 lg:px-20 py-8 text-xs lg:text-lg">
+    <Page className="bg-[#EE292E] bg-opacity-80 space-y-4 px-4 lg:px-20 py-8 text-base lg:text-lg">
       <Block className="max-w-1840px mx-auto">
         <h1 className="text-4xl lg:text-8xl">{t('manifest:intro.title')}</h1>
 
-        <p className="text-small">{t('manifest:intro.introduction')}</p>
+        <p>{t('manifest:intro.introduction')}</p>
 
         <p>{t('manifest:intro.text')}</p>
 

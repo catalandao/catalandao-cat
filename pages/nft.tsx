@@ -10,7 +10,6 @@ import PhotoKlas from '../public/images/Foto-Klas.png';
 import PhotoCaboSanRoque from '../public/images/Foto-CaboSanRoque.png';
 import UnveiledTio1 from '../public/images/unveiled-tio1.jpeg';
 import UnveiledTio2 from '../public/images/unveiled-tio2.jpeg';
-import { Trans } from 'react-i18next';
 
 const unveiled = {
   odd: UnveiledTio1,
@@ -23,7 +22,7 @@ interface Props {
 }
 
 const Title = ({ children, className = '' }: Props) => (
-<h1 className={`${className} justify-center flex text-2xl lg:text-5xl my-8`}>{children}</h1>
+<h1 className={`${className} justify-center flex text-3xl lg:text-5xl my-8`}>{children}</h1>
 );
 
 interface BlockProps extends Props {
@@ -31,7 +30,7 @@ interface BlockProps extends Props {
   colored?: boolean;
 }
 const Block = ({ id, children, colored, className = '' }: BlockProps) => (
-  <div id={id} className={`${className} space-y-6 p-2 lg:p-16 lg:py-5 ${colored ? 'bg-[#FFD740]' : ''}`}>
+  <div id={id} className={`${className} space-y-6 p-2 pb-6 lg:p-16 lg:py-5 ${colored ? 'bg-[#FFD740]' : ''}`}>
     {children}
   </div>
 );
@@ -61,7 +60,7 @@ interface ImgProps extends Omit<Props, 'children'> {
 }
 const Img = ({ src, caption, reversed, className = '' }: ImgProps) => {
   const Caption = () => (
-    <figcaption className="text-md lg:text-xl text-center my-5">{caption}</figcaption>
+    <figcaption className="text-lg lg:text-xl text-center my-5">{caption}</figcaption>
   );
 
   return (
@@ -102,55 +101,58 @@ const Component = () => {
   const { data: buyers = [] } = useSwr('/api/buyers', fetcher);
 
   return (
-    <Page className="bg-[#EEE] text-xs lg:text-lg">
+    <Page className="bg-[#EEE] text-sm lg:text-lg">
       <Block>
         <RRow>
           <RCol>
             <header>
-            <span className="text-small text-[#AAA]">{t('projects:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
-            <h1 className="flex text-2xl lg:text-5xl my-8">{t('projects:intro.label', { n: 2 })}</h1>
+            <span className="text-1xl text-[#777]">{t('nft:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
+            <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: 2 })}</h1>
             </header>
             <div className="block lg:hidden">
-            <Img className="max-w-md mx-auto ml-auto" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
+            <Img className="max-w-md mx-auto ml-auto" src={NFTPhoto} caption={t('nft:intro.help.log_count', { unit: 2, total: 24 })} />
               <div className="flex flex-col">
-              <span className="text-xl lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
-                <span className="text-xl lg:text-xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
+              <span className="text-xl lg:text-xl">{t('nft:intro.help.price', { price: 0.34 })}</span>
+                <span className="text-xl lg:text-xl">{t('nft:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
               </div>
             </div>
-            <p className="max-w-2xl lg:min-h-80">{t('projects:intro.text')}</p>
+            <p className="max-w-2xl lg:min-h-80">
+              {t('nft:intro.text')}
+              <Link className="underline" newTab={true} href="https://www.notion.so/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996"> {t('nft:intro.link')}</Link>.
+              </p>
             <div className="my-10 flex flex-col">
-            <CtaLink href="https://opensea.io/CatalanDAO">{t('projects:intro.cta')}</CtaLink>
+            <CtaLink href="https://opensea.io/CatalanDAO">{t('nft:intro.cta')}</CtaLink>
               <div className="flex flex-row justify-around p-2 my-3">
-                <Link newTab={true} href="https://www.notion.so/catalandao/Com-participar-de-la-subhasta-dels-NFT-d-advent-02422855608b4385b75ba5dca4101afb" className="text-xs lg:text-sm hover:underline">
-                <span className="mx-2">&#x2139;</span>{t('projects:intro.help.involvement')}</Link>
-                <Link href="#faq" className="text-xs lg:text-sm hover:underline">
-                  <span className="mx-2">&#x2753;</span>{t('projects:intro.help.faq')}</Link>
+                <Link newTab={true} href="https://www.notion.so/catalandao/Com-participar-de-la-subhasta-dels-NFT-d-advent-02422855608b4385b75ba5dca4101afb" className="text-sm hover:underline">
+                <span className="mx-2">&#x2139;</span>{t('nft:intro.help.involvement')}</Link>
+                <Link href="#faq" className="text-sm hover:underline">
+                  <span className="mx-2">&#x2753;</span>{t('nft:intro.help.faq')}</Link>
               </div>
             </div>
             <div className="flex flex-col hidden lg:block">
-            <span className="text-xl flex lg:text-xl">{t('projects:intro.help.price', { price: 0.34 })}</span>
-              <span className="text-xl flex lg:text-xl">{t('projects:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
+            <span className="text-xl flex lg:text-xl">{t('nft:intro.help.price', { price: 0.34 })}</span>
+              <span className="text-xl flex lg:text-xl">{t('nft:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
             </div>
           </RCol>
           <RCol className="hidden lg:block">
-            <Img className="max-w-md" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} />
+            <Img className="max-w-md" src={NFTPhoto} caption={t('nft:intro.help.log_count', { unit: 2, total: 24 })} />
           </RCol>
         </RRow>
       </Block>
       <Block colored>
+        <Title>{t('nft:listing.title')}</Title>
         <RRow>
           <RCol>
-            <Title>{t('projects:listing.title')}</Title>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5 lg:gap-10">
               {[...new Array(24)].map((_, i) => (
-                <NFTTio key={i} index={i} caption={t('projects:listing.item.title', { x: i + 1 })} />
+                <NFTTio key={i} index={i} caption={t('nft:listing.item.title', { x: i + 1 })} />
               ))}
             </div>
           </RCol>
         </RRow>
       </Block>
       <Block>
-        <Title>{t('projects:ranking.title')}</Title>
+        <Title>{t('nft:ranking.title')}</Title>
         <RRow>
           <RCol>
             <Table rows={buyers} />
@@ -158,10 +160,15 @@ const Component = () => {
         </RRow>
       </Block>
       <Block colored>
+        <Title>{t('nft:rationale.title')}</Title>
         <RRow>
           <RCol>
-            <Title>{t('projects:rationale.title')}</Title>
-            <Trans i18nKey="projects:rationale.content" />
+            <p>{t('nft:rationale.content.first')}</p>
+            <p>{t('nft:rationale.content.second')}</p>
+            <p>{t('nft:rationale.content.third')}</p>
+            <p>{t('nft:rationale.content.fourth')}</p>
+            <p>{t('nft:rationale.content.fith')}</p>
+            <p>{t('nft:rationale.content.sixth')}</p>
             <div className="w-full flex flex-col relative" style={{ paddingBottom: '56.25%' }}>
               <iframe className="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/UjzkxcHPb9g?start=47" title="YouTube vi deo player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
@@ -169,57 +176,73 @@ const Component = () => {
         </RRow>
       </Block>
       <Block>
-        <Title>{t('projects:artists.title')}</Title>
-        <RRow>
+        <Title>{t('nft:artists.title')}</Title>
+        <RRow className="space-y-6  lg:space-y-0">
           <RCol>
             <Img src={PhotoKlas} />
-            <header className="text-2xl">{t('projects:artists.klas.title')}</header>
-            <p>{t('projects:artists.klas.description')}</p>
+            <header className="text-2xl">{t('nft:artists.klas.title')}</header>
+            <p>{t('nft:artists.klas.description')}</p>
           </RCol>
           <RCol>
             <Img src={PhotoCaboSanRoque} />
-            <header className="text-2xl">{t('projects:artists.cabo_san_roque.title')}</header>
-            <p>{t('projects:artists.cabo_san_roque.description')}</p>
+            <header className="text-2xl">{t('nft:artists.cabo_san_roque.title')}</header>
+            <p>{t('nft:artists.cabo_san_roque.description')}</p>
           </RCol>
         </RRow>
       </Block>
       <Block id="faq" colored className="space-y-0">
+        <Title>{t('nft:faq.title')}</Title>
         <RRow>
           <RCol>
             <div className="p-4 space-y-4">
-              <Title className="lg:mb-22">{t('projects:faq.title')}</Title>
               <details open>
-                <summary className="-mx-4">Què és un NFT?</summary>
-                <p>NFT és l’acrònim de Non-Fungible Token, que podem traduir com Token No-Fungible. Els NFTs són certificats d’autenticitat basats en tecnologia de cadena de blocs (blockchain), que enregistra qualsevol tipus de format digital, qui n’és creador, qui propietari, l’ús que se’n pot fer i els privilegis que proporciona.</p>
+                <summary className="-mx-4 text-base lg:text-lg font-semibold">{t('nft:faq.summary.first')}</summary>
+                <p className="mt-4">
+                  {t('nft:faq.detail.first.part1')}
+                  <a className="underline" href="https://www.notion.so/catalandao/Manifest-de-la-CatalanDAO-ab6f1e9a0f3342a79cfd18e7e4f7351b">Manifest de la CatalanDAO</a>
+                  {t('nft:faq.detail.first.part2')}
+                  <a className="underline" href="https://discord.gg/BNqJQXwtqA">Discord</a>
+                </p>
               </details>
 
               <details>
-                <summary className="-mx-4">Què és un NFT d’Advent de la CatalanDAO?</summary>
-                <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
+                <summary className="-mx-4 text-base lg:text-lg font-semibold">{t('nft:faq.summary.second')}</summary>
+                <p className="mt-4">{t('nft:faq.detail.second')}</p>
               </details>
 
               <details>
-                <summary className="-mx-4">Com puc participar a la subhasta?</summary>
-                <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
+                <summary className="-mx-4 text-base lg:text-lg font-semibold">{t('nft:faq.summary.third')}</summary>
+                <p className="mt-4">{t('nft:faq.detail.third')}</p>
               </details>
 
               <details>
-                <summary className="-mx-4">A on es destinaran els fons recollits?</summary>
-                <p>Bacon ipsum dolor amet flank hamburger frankfurter turducken buffalo, alcatra rump. Boudin ham jowl turkey. Ham pork tail turducken fatback buffalo. Short ribs frankfurter landjaeger, kevin tail biltong turkey. Prosciutto bacon turkey salami kevin doner. Ribeye chuck chislic, strip steak meatball tenderloin drumstick shoulder ball tip.</p>
+                <summary className="-mx-4 text-base lg:text-lg font-semibold">{t('nft:faq.summary.fourth')}</summary>
+                <p className="mt-4">{t('nft:faq.detail.fourth')}</p>
+              </details>
+
+              <details>
+                <summary className="-mx-4 text-base lg:text-lg font-semibold">{t('nft:faq.summary.fith')}</summary>
+                <p className="mt-4">
+                  {t('nft:faq.detail.fith.part1')}
+                  <a className="underline" href="https://polygon.technology/">Polygon</a>
+                  {t('nft:faq.detail.fith.part2')}
+                  <a className="underline" href="https://discord.gg/BNqJQXwtqA">Discord</a>
+                  {t('nft:faq.detail.fith.part3')}
+                </p>
               </details>
             </div>
           </RCol>
         </RRow>
         <RRow className="lg:w-250">
-          <RCol>
+          <RCol className="space-y-6">
             <Colophon>
               <RCol>
-              <h3 className="text-xl lg:text-2xl">{t('projects:colophon.title')}</h3>
-                <p>{t('projects:colophon.text')}</p>
+              <h3 className="text-xl lg:text-2xl">{t('nft:colophon.title')}</h3>
+                <p>{t('nft:colophon.text')}</p>
               </RCol>
-              <RCol className="flex flex-col lg:px-34">
-                <CtaLink href="https://discord.com/invite/BNqJQXwtqA">{t('projects:colophon.join.discord')}</CtaLink>
-                <SecondaryLink href="https://www.notion.so/catalandao/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996">{t('projects:colophon.join.wiki')}</SecondaryLink>
+              <RCol className="flex flex-col my-auto mt-6 lg:my-auto space-y-3">
+                <CtaLink href="https://discord.com/invite/BNqJQXwtqA">{t('nft:colophon.join.discord')}</CtaLink>
+                <SecondaryLink href="https://www.notion.so/catalandao/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996">{t('nft:colophon.join.wiki')}</SecondaryLink>
               </RCol>
             </Colophon>
           </RCol>
