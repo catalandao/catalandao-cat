@@ -9,7 +9,6 @@ import PhotoKlas from '../public/images/Foto-Klas.png';
 import PhotoCaboSanRoque from '../public/images/Foto-CaboSanRoque.png';
 import UnveiledTio1 from '../public/images/unveiled-tio1.jpeg';
 import UnveiledTio2 from '../public/images/unveiled-tio2.jpeg';
-import { Trans } from 'react-i18next';
 import { LogoInstagram, LogoTwitter } from '@/styles/assets/svgs/logos';
 
 const unveiled = {
@@ -93,6 +92,29 @@ const Colophon = ({ children, className = '' }: Props) => (
   <RRow className={`${className} shadow-xl mx-auto p-10 bg-[#FF4242] box-sixing rounded-xl bg-opacity-25`}>
     {children}
   </RRow>
+);
+
+interface ArtistsSocialProps extends Omit<Props, 'children'> {
+  website: string;
+  twitter?: string;
+  instagram: string;
+}
+const ArtistsSocial = ({ website, twitter, instagram, className = '' }: ArtistsSocialProps) => (
+  <div className={`${className} space-y-6 pb-10`}>
+    <p><a href={website} target="_blank" rel="noreferrer" className="underline underline-black"><span className="mr-2">🌎</span>{website}</a></p>
+    <p>
+      <a href={`https://instagram.com/${instagram}`} target="_blank" rel="noreferrer" className="inline-flex items-center underline underline-black">
+        <LogoInstagram className="w-5 h-5 mr-2" />{instagram}
+      </a>
+    </p>
+    {twitter && (
+      <p>
+        <a href={`https://twitter.com/${twitter}`} target="_blank" rel="noreferrer" className="inline-flex items-center underline underline-black">
+          <LogoTwitter className="w-5 h-5 mr-2 fill-[#1d9bf0]" />{twitter}
+        </a>
+      </p>
+    )}
+  </div>
 );
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -189,38 +211,13 @@ const Component = () => {
             <Img src={PhotoKlas} />
             <header className="text-2xl">{t('nft:artists.klas.title')}</header>
             <p>{t('nft:artists.klas.description')}</p>
-            <div className="lg:block flex space-y-0 lg:space-y-3 items-center p-2 space-x-5 lg:space-x-0 pb-10">
-              <p><a href="https://klasherbert.com/" target="_blank" rel="noreferrer" className="underline underline-black"><span className="mr-2">🌎</span>https://klasherbert.com/</a></p>
-              <p>
-                <a href="https://instagram.com/klasherbert" target="_blank" rel="noreferrer" className="inline-flex items-center underline underline-black">
-                  <LogoInstagram className="w-5 h-5 mr-2" />klasherbert
-                </a>
-              </p>
-              <p>
-                <a href="https://twitter.com/klasherbert" target="_blank" rel="noreferrer" className="inline-flex items-center underline underline-black">
-                  <LogoTwitter className="w-5 h-5 mr-2 fill-[#1d9bf0]" />klasherbert
-                </a>
-              </p>
-            </div>
+            <ArtistsSocial website="https://klasherbert.com/" instagram="klasherbert" />
           </RCol >
           <RCol>
             <Img src={PhotoCaboSanRoque} />
             <header className="text-2xl">{t('nft:artists.cabo_san_roque.title')}</header>
             <p>{t('nft:artists.cabo_san_roque.description')}</p>
-
-            <div className="lg:block flex space-y-0 lg:space-y-3 items-center p-2 space-x-5 lg:space-x-0 pb-10">
-              <p><a href="https://cabosanroque.com/" target="_blank" rel="noreferrer" className="underline underline-black"><span className="mr-2">🌎</span>http://cabosanroque.com/</a></p>
-              <p>
-                <a href="https://instagram.com/cabosanroque" target="_blank" rel="noreferrer" className="inline-flex items-center underline underline-black">
-                  <LogoInstagram className="w-5 h-5 mr-2" />cabosanroque
-                </a>
-              </p>
-              <p>
-                <a href="https://twitter.com/cabosanroque" target="_blank" rel="noreferrer" className="inline-flex items-center underline underline-black">
-                  <LogoTwitter className="w-5 h-5 mr-2 fill-[#1d9bf0]" />cabosanroque
-                </a>
-              </p>
-            </div>
+            <ArtistsSocial website="https://cabosanroque.com/" twitter="cabosanroque" instagram="cabosanroque" />
           </RCol>
         </RRow >
       </Block >
