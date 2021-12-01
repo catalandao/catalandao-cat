@@ -20,7 +20,7 @@ const unveiled = {
 
 const getRemaining = (start: number, end: number) => (
   [...new Array(end - start)].reduce(
-    (trail, curr) => [...trail, unveiled[curr % 2 === 0 ? 'even' : 'odd']],
+    (trail, _, ptr) => [...trail, unveiled[ptr % 2 === 0 ? 'even' : 'odd']],
     [],
   )
 );

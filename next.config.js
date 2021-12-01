@@ -17,7 +17,7 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: '/nft',
+        destination: '/manifest',
         permanent: false,
       },
     ]
