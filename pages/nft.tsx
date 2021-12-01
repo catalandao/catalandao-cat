@@ -215,13 +215,13 @@ const Component = () => {
         <Title>{t('nft:artists.title')}</Title>
         <RRow className="space-y-6  lg:space-y-0">
           <RCol>
-            <Img responsive src={PhotoKlas} />
+            <Img src={PhotoKlas} />
             <header className="text-2xl">{t('nft:artists.klas.title')}</header>
             <p>{t('nft:artists.klas.description')}</p>
             <ArtistsSocial website="https://klasherbert.com/" instagram="klasherbert" />
           </RCol >
           <RCol>
-            <Img responsive src={PhotoCaboSanRoque} />
+            <Img src={PhotoCaboSanRoque} />
             <header className="text-2xl">{t('nft:artists.cabo_san_roque.title')}</header>
             <p>{t('nft:artists.cabo_san_roque.description')}</p>
             <ArtistsSocial website="https://cabosanroque.com/" twitter="cabosanroque" instagram="cabosanroque" />
