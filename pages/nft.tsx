@@ -230,7 +230,7 @@ const Component = () => {
                 <summary className="-mx-4 text-base lg:text-lg font-semibold">{t('nft:faq.summary.first')}</summary>
                 <p className="mt-4">
                   {t('nft:faq.detail.first.part1')}
-                  <Link newTab={true} className="underline" href="https://www.notion.so/catalandao/Manifest-de-la-CatalanDAO-ab6f1e9a0f3342a79cfd18e7e4f7351b">Manifest de la CatalanDAO</Link>
+                  <Link newTab={true} className="underline" href="https://www.notion.so/catalandao/Manifest-de-la-CatalanDAO-ab6f1e9a0f3342a79cfd18e7e4f7351b">{t('nft:faq.detail.first.link')}</Link>.
                   {t('nft:faq.detail.first.part2')}
                   <Link newTab={true} className="underline" href="https://discord.gg/BNqJQXwtqA">Discord</Link>
                 </p>
