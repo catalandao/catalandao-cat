@@ -11,6 +11,7 @@ import UnveiledTio1 from '../public/images/unveiled-tio1.jpeg';
 import UnveiledTio2 from '../public/images/unveiled-tio2.jpeg';
 import { LogoInstagram, LogoTwitter } from '@/styles/assets/svgs/logos';
 
+
 const unveiled = {
   odd: UnveiledTio1,
   even: UnveiledTio2,
@@ -54,20 +55,21 @@ const SecondaryLink = ({ children, href, className }: BtProps) => (
 );
 
 interface ImgProps extends Omit<Props, 'children'> {
+  responsive?: boolean;
   reversed?: boolean;
   caption?: string;
   src: string | StaticImageData;
 }
-const Img = ({ src, caption, reversed, className = '' }: ImgProps) => {
+const Img = ({ src, caption, reversed, responsive, className = '' }: ImgProps) => {
   const Caption = () => (
-    <figcaption className="text-lg lg:text-xl text-center my-5">{caption}</figcaption>
+    <figcaption className="text-lg lg:text-xl justify-center flex">{caption}</figcaption>
   );
 
   return (
-    <figure className={`${className} ${!reversed ? ' ml-auto' : ''}`}>
+    <figure className={`${className} ${responsive || 'flex flex-col justify-center h-full w-full'}`}>
       {reversed && caption && <Caption />}
-      <div className="rounded-xl shadow-xl overflow-hidden">
-        <Image src={src} alt={caption} layout="responsive" objectFit="contain" />
+      <div className={`rounded-xl shadow-xl ${responsive || 'flex flex-1 relative'}`}>
+        <Image src={src} alt={caption} layout={responsive ? 'responsive' : 'fill'} objectFit="cover" />
       </div>
       {!reversed && caption && <Caption />}
     </figure>
@@ -85,7 +87,7 @@ const NFTTio = ({
   caption,
 }: NFTTioProps) => {
   const source = src ?? unveiled[index % 2 === 0 ? 'even' : 'odd'];
-  return <Img src={source} caption={caption} reversed />;
+  return <div className="min-h-sm"><Img src={source} caption={caption} reversed /></div>;
 };
 
 const Colophon = ({ children, className = '' }: Props) => (
@@ -133,14 +135,11 @@ const Component = () => {
               <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: 1 })}</h1>
             </header>
             <div className="block lg:hidden">
-              <Img className="max-w-md mx-auto ml-auto" src={unveiled.odd} caption={t('nft:intro.coming_soon')} />
-              {/* <Img className="max-w-md" src={NFTPhoto} caption={t('nft:intro.help.log_count', { unit: 2, total: 24 })} /> */ /* amagar fins que començi */}
-              {/* // amagar fins la subhasta
+              <Img className="min-h-3xl" src="https://lh3.googleusercontent.com/fzyukbR6bFI9gSsSllmQDr1rlwMjNz7U4uYcOd6YG1ng2rpN2QE2wGsGMy2f-RIMC-1geLgdmXDJgUzSIgzqigWAFHKvMCaJZclpxfc" caption={t('nft:intro.help.log_count', { unit: 1, total: 24 })} />
               <div className="flex flex-col">
-                <span className="text-xl lg:text-xl">{t('nft:intro.help.price', { price: 0.34 })}</span>
-                <span className="text-xl lg:text-xl">{t('nft:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
+                <span className="text-xl lg:text-xl">{t('nft:intro.help.price', { price: 0.25 })}</span>
+                {/* <span className="text-xl lg:text-xl">{t('nft:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span> */}
               </div>
-              */}
             </div>
             <p className="max-w-2xl lg:min-h-80">
               {t('nft:intro.text')}
@@ -155,16 +154,13 @@ const Component = () => {
                   <span className="mx-2">&#x2753;</span>{t('nft:intro.help.faq')}</Link>
               </div>
             </div>
-            {/* // amagar fins la subhasta
-            <div className="flex flex-col hidden lg:block">
-            <span className="text-xl flex lg:text-xl">{t('nft:intro.help.price', { price: 0.34 })}</span>
-              <span className="text-xl flex lg:text-xl">{t('nft:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
+            <div className="flex-col hidden lg:flex">
+              <span className="text-xl flex lg:text-xl">{t('nft:intro.help.price', { price: 0.34 })}</span>
+              {/*<span className="text-xl flex lg:text-xl">{t('nft:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>*/}
             </div>
-            */}
           </RCol>
-          <RCol className="hidden lg:block">
-            <Img className="max-w-md" src={unveiled.odd} caption={t('nft:intro.coming_soon')} />
-            {/* <Img className="max-w-md" src={NFTPhoto} caption={t('projects:intro.help.log_count', { unit: 2, total: 24 })} /> */ /* amagar fins que començi */}
+          <RCol className="hidden lg:flex">
+            <Img className="max-w-md" src="https://lh3.googleusercontent.com/fzyukbR6bFI9gSsSllmQDr1rlwMjNz7U4uYcOd6YG1ng2rpN2QE2wGsGMy2f-RIMC-1geLgdmXDJgUzSIgzqigWAFHKvMCaJZclpxfc" caption={t('nft:intro.help.log_count', { unit: 1, total: 24 })} />
           </RCol>
         </RRow>
       </Block>
@@ -208,13 +204,13 @@ const Component = () => {
         <Title>{t('nft:artists.title')}</Title>
         <RRow className="space-y-6  lg:space-y-0">
           <RCol>
-            <Img src={PhotoKlas} />
+            <Img responsive src={PhotoKlas} />
             <header className="text-2xl">{t('nft:artists.klas.title')}</header>
             <p>{t('nft:artists.klas.description')}</p>
             <ArtistsSocial website="https://klasherbert.com/" instagram="klasherbert" />
           </RCol >
           <RCol>
-            <Img src={PhotoCaboSanRoque} />
+            <Img responsive src={PhotoCaboSanRoque} />
             <header className="text-2xl">{t('nft:artists.cabo_san_roque.title')}</header>
             <p>{t('nft:artists.cabo_san_roque.description')}</p>
             <ArtistsSocial website="https://cabosanroque.com/" twitter="cabosanroque" instagram="cabosanroque" />
