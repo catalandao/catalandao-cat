@@ -8,9 +8,6 @@ module.exports = {
     config.plugins.push(new WindiCSSWebpackPlugin)
     return config
   },
-  images: {
-    domains: ['lh3.googleusercontent.com'],
-  },
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -20,7 +17,7 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: '/manifest',
+        destination: '/nft',
         permanent: false,
       },
     ]

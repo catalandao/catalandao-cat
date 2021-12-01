@@ -9,6 +9,7 @@ import PhotoKlas from '../public/images/Foto-Klas.png';
 import PhotoCaboSanRoque from '../public/images/Foto-CaboSanRoque.png';
 import UnveiledTio1 from '../public/images/unveiled-tio1.jpeg';
 import UnveiledTio2 from '../public/images/unveiled-tio2.jpeg';
+import Tio1 from '../public/images/revealed/1.jpeg';
 import { LogoInstagram, LogoTwitter } from '@/styles/assets/svgs/logos';
 
 
@@ -16,6 +17,18 @@ const unveiled = {
   odd: UnveiledTio1,
   even: UnveiledTio2,
 } as const;
+
+const getRemaining = (start: number, end: number) => (
+  [...new Array(end - start)].reduce(
+    (trail, curr) => [...trail, unveiled[curr % 2 === 0 ? 'even' : 'odd']],
+    [],
+  )
+);
+
+const tions = [
+  Tio1,
+  ...getRemaining(1, 24),
+] as const;
 
 interface Props {
   children: React.ReactNode;
@@ -55,21 +68,20 @@ const SecondaryLink = ({ children, href, className }: BtProps) => (
 );
 
 interface ImgProps extends Omit<Props, 'children'> {
-  responsive?: boolean;
   reversed?: boolean;
   caption?: string;
   src: string | StaticImageData;
 }
-const Img = ({ src, caption, reversed, responsive, className = '' }: ImgProps) => {
+const Img = ({ src, caption, reversed, className = '' }: ImgProps) => {
   const Caption = () => (
     <figcaption className="text-lg lg:text-xl justify-center flex">{caption}</figcaption>
   );
 
   return (
-    <figure className={`${className} ${responsive || 'flex flex-col justify-center h-full w-full'}`}>
+    <figure className={`${className} w-full`}>
       {reversed && caption && <Caption />}
-      <div className={`rounded-xl shadow-xl ${responsive || 'flex flex-1 relative'}`}>
-        <Image src={src} alt={caption} layout={responsive ? 'responsive' : 'fill'} objectFit="cover" />
+      <div className="rounded-xl shadow-xl">
+        <Image src={src} alt={caption} layout="responsive" objectFit="cover" />
       </div>
       {!reversed && caption && <Caption />}
     </figure>
@@ -124,7 +136,6 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const Component = () => {
   const { t } = useTranslation();
   const { data: buyers = [] } = useSwr('/api/buyers', fetcher);
-
   return (
     <Page className="bg-[#EEE] text-sm lg:text-lg">
       <Block>
@@ -135,7 +146,7 @@ const Component = () => {
               <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: 1 })}</h1>
             </header>
             <div className="block lg:hidden">
-              <Img className="min-h-3xl" src="https://lh3.googleusercontent.com/fzyukbR6bFI9gSsSllmQDr1rlwMjNz7U4uYcOd6YG1ng2rpN2QE2wGsGMy2f-RIMC-1geLgdmXDJgUzSIgzqigWAFHKvMCaJZclpxfc" caption={t('nft:intro.help.log_count', { unit: 1, total: 24 })} />
+              <Img className="min-h-2xl my-10" src={Tio1} caption={t('nft:intro.help.log_count', { unit: 1, total: 24 })} />
               <div className="flex flex-col">
                 <span className="text-xl lg:text-xl">{t('nft:intro.help.price', { price: 0.25 })}</span>
                 {/* <span className="text-xl lg:text-xl">{t('nft:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span> */}
@@ -155,12 +166,12 @@ const Component = () => {
               </div>
             </div>
             <div className="flex-col hidden lg:flex">
-              <span className="text-xl flex lg:text-xl">{t('nft:intro.help.price', { price: 0.34 })}</span>
+              <span className="text-xl flex lg:text-xl">{t('nft:intro.help.price', { price: 0.25 })}</span>
               {/*<span className="text-xl flex lg:text-xl">{t('nft:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>*/}
             </div>
           </RCol>
           <RCol className="hidden lg:flex">
-            <Img className="max-w-md" src="https://lh3.googleusercontent.com/fzyukbR6bFI9gSsSllmQDr1rlwMjNz7U4uYcOd6YG1ng2rpN2QE2wGsGMy2f-RIMC-1geLgdmXDJgUzSIgzqigWAFHKvMCaJZclpxfc" caption={t('nft:intro.help.log_count', { unit: 1, total: 24 })} />
+            <Img className="mx-auto w-128" src={Tio1} caption={t('nft:intro.help.log_count', { unit: 1, total: 24 })} />
           </RCol>
         </RRow>
       </Block>
@@ -169,8 +180,8 @@ const Component = () => {
         <RRow>
           <RCol>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5 lg:gap-10">
-              {[...new Array(24)].map((_, i) => (
-                <NFTTio key={i} index={i} caption={t('nft:listing.item.title', { x: i + 1 })} />
+              {tions.map((src, i) => (
+                <NFTTio key={i} index={i} src={src} caption={t('nft:listing.item.title', { x: i + 1 })} />
               ))}
             </div>
           </RCol>
