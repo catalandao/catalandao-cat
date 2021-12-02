@@ -4,6 +4,7 @@ import { useTranslation } from '@/lib/i18n';
 import Page from '@/components/Page';
 import { HeroCommunity, HeroManifest, HeroProjects, HeroTools } from '@/styles/assets/svgs/logos';
 import Hero from '@/components/Hero';
+import { useEffect } from 'react';
 
 interface Props {
   className?: string;
@@ -25,6 +26,7 @@ const Title = ({ children, className = '' }: Props) => (
 
 const Home: NextPage = () => {
   const { t } = useTranslation();
+  
   return (
     <>
       <Head>
