@@ -1,9 +1,15 @@
 import Page from '@/components/Page';
 import { useTranslation } from '@/lib/i18n';
+import { tallyConfig } from '@/lib/tally-config';
+import { useEffect } from 'react';
 import { Trans } from 'react-i18next';
 
 const Component = () => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    (window as any).TallyConfig = tallyConfig;
+  }, []);
 
   interface Props {
     children: React.ReactNode;

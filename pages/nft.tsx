@@ -12,6 +12,8 @@ import UnveiledTio2 from '../public/images/unveiled-tio2.jpeg';
 import Tio1 from '../public/images/revealed/1.jpeg';
 import Tio2 from '../public/images/revealed/2.jpeg';
 import { LogoInstagram, LogoTwitter } from '@/styles/assets/svgs/logos';
+import { useEffect } from 'react';
+import { tallyConfig } from '@/lib/tally-config';
 
 
 const unveiled = {
@@ -137,6 +139,11 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Component = () => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    (window as any).TallyConfig = tallyConfig;
+  }, []);
+
   const { data: buyers = [] } = useSwr('/api/buyers', fetcher);
   return (
     <Page className="bg-[#EEE] text-sm lg:text-lg">
