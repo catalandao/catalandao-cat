@@ -29,7 +29,7 @@ const getRemaining = (start: number, end: number) => (
 const tions = [
   Tio1,
   Tio2,
-  ...getRemaining(1, 24),
+  ...getRemaining(1, 23),
 ] as const;
 
 interface Props {
