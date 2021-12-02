@@ -10,6 +10,7 @@ import PhotoCaboSanRoque from '../public/images/Foto-CaboSanRoque.png';
 import UnveiledTio1 from '../public/images/unveiled-tio1.jpeg';
 import UnveiledTio2 from '../public/images/unveiled-tio2.jpeg';
 import Tio1 from '../public/images/revealed/1.jpeg';
+import Tio2 from '../public/images/revealed/2.jpeg';
 import { LogoInstagram, LogoTwitter } from '@/styles/assets/svgs/logos';
 
 
@@ -27,6 +28,7 @@ const getRemaining = (start: number, end: number) => (
 
 const tions = [
   Tio1,
+  Tio2,
   ...getRemaining(1, 24),
 ] as const;
 
@@ -74,7 +76,7 @@ interface ImgProps extends Omit<Props, 'children'> {
 }
 const Img = ({ src, caption, reversed, className = '' }: ImgProps) => {
   const Caption = () => (
-    <figcaption className="text-lg lg:text-xl justify-center flex">{caption}</figcaption>
+    <figcaption className="text-lg lg:text-xl justify-center my-3 flex">{caption}</figcaption>
   );
 
   return (
@@ -143,10 +145,10 @@ const Component = () => {
           <RCol>
             <header>
               <span className="text-1xl text-[#777]">{t('nft:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
-              <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: 1 })}</h1>
+              <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: 2 })}</h1>
             </header>
             <div className="block lg:hidden">
-              <Img className="min-h-2xl my-10" src={Tio1} caption={t('nft:intro.help.log_count', { unit: 1, total: 24 })} />
+              <Img className="min-h-2xl my-10" src={Tio2} caption={t('nft:intro.help.log_count', { unit: 2, total: 24 })} />
               {/*
               <div className="flex flex-col">
                 <span className="text-xl lg:text-xl">{t('nft:intro.help.price', { price: 0.25 })}</span>
@@ -175,7 +177,7 @@ const Component = () => {
             */}
           </RCol>
           <RCol className="hidden lg:flex">
-            <Img className="mx-auto w-128" src={Tio1} caption={t('nft:intro.help.log_count', { unit: 1, total: 24 })} />
+            <Img className="mx-auto w-128" src={Tio2} caption={t('nft:intro.help.log_count', { unit: 2, total: 24 })} />
           </RCol>
         </RRow>
       </Block>
