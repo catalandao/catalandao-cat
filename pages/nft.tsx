@@ -83,7 +83,7 @@ const Img = ({ src, caption, reversed, className = '' }: ImgProps) => {
     <figure className={`${className} w-full`}>
       {reversed && caption && <Caption />}
       <div className="rounded-xl shadow-xl">
-        <Image src={src} alt={caption} layout="responsive" objectFit="cover" />
+        <Image src={src} alt={caption} layout="responsive" objectFit="cover" className="rounded-xl" />
       </div>
       {!reversed && caption && <Caption />}
     </figure>
@@ -211,7 +211,7 @@ const Component = () => {
             <p>{t('nft:rationale.content.fourth')}</p>
             <p>{t('nft:rationale.content.fith')}</p>
             <p>{t('nft:rationale.content.sixth')}</p>
-            <div className="w-full flex flex-col relative" style={{ paddingBottom: '56.25%' }}>
+            <div className="w-full flex flex-col relative rounded-xl overflow-hidden" style={{ paddingBottom: '56.25%' }}>
               <iframe className="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/UjzkxcHPb9g?start=47" title="YouTube vi deo player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
           </RCol>
