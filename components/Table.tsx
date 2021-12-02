@@ -1,8 +1,10 @@
+import { useTranslation } from "@/lib/i18n";
 
 interface Props {
   rows: Record<string, string>[];
 }
 const Table = ({ rows }: Props) => {
+  const { t } = useTranslation();
   const [single = {}] = rows;
   const headers = Object.keys(single);
 
@@ -12,7 +14,7 @@ const Table = ({ rows }: Props) => {
       <table className="border w-full items-center bg-transparent w-full border-collapse">
         <thead>
           <tr className="text-center text-md bg-yellow-500 text-white">
-            {headers.map((h, i) => <th key={i} className="text-md">{h}</th>)}
+            {headers.map((h, i) => <th key={i} className="text-md">{t(`nft:ranking.table.headers.${h}`)}</th>)}
           </tr>
         </thead>
         <tbody className="lg:text-center max-h-128 lg:mx-auto overflow-y-scroll lg:overscroll-y-auto">

@@ -6,20 +6,21 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 // use rarible or opensea api to grab details from the sell
 // here: https://docs.opensea.io/reference/api-overview
 // or here: https://api.rarible.org/v0.1/doc
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const mockBuyers = () => (
-  [...new Array(24)].map((_, i) => ({
-    'Núm': `#${i + 1}`,
-    'Data': `${i + 1} de desembre`,
-    'Adreça': '0xFffb2949fksof0gi2nf0a0aj3nf9gj3ng0n',
-    'Preu': `${(4 * Math.random()).toFixed(2)} ETH`,
-  }))
-);
+
+const days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24] as const;
+interface Buyer {
+  num: typeof days[number];
+  date: string;
+  address: string,
+  price: string;
+}
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<unknown>,
 ) {
-  const buyers: unknown = [];// mockBuyers(); // <= use this for the "bidder" shape
+  const buyers: Buyer[] = [
+    { num: 1, date: '1-12-2021', address: '0x839395e20bbb182fa440d08f850e6c7a8f6f0780', price: '0.55 WΞTH' },
+  ];
   return res.status(200).json(buyers);
 }
