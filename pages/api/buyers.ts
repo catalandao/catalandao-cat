@@ -21,6 +21,7 @@ export default async function handler(
 ) {
   const buyers: Buyer[] = [
     { num: 1, date: '1-12-2021', address: '0x839395e20bbb182fa440d08f850e6c7a8f6f0780', price: '0.55 WΞTH' },
+    { num: 2, date: '2-12-2021', address: '0x981e7512e87d2f7228d3f03b65950eb6a1b21bac', price: '0.3307 WΞTH'}
   ];
   return res.status(200).json(buyers);
 }
