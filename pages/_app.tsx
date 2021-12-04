@@ -1,14 +1,6 @@
 import 'windi.css';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
-import { Web3ReactProvider } from '@web3-react/core';
-import Web3 from 'web3';
-
-
-function getLibrary(provider: any): Web3 {
-  const library = new Web3(provider);
-  return library;
-}
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
@@ -20,9 +12,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       <script async src="https://tally.so/widgets/embed.js"></script>;
       <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Head>
-    <Web3ReactProvider getLibrary={getLibrary}>
-      <Component {...pageProps} />
-    </Web3ReactProvider>
+    <Component {...pageProps} />
   </>
 );
 

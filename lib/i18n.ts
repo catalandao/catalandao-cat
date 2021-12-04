@@ -8,6 +8,7 @@ import enManifest from '@/locales/en/manifest.json';
 import caCommon from '@/locales/ca/common.json';
 import caNft from '@/locales/ca/nft.json';
 import caManifest from '@/locales/ca/manifest.json';
+import moment from 'moment';
 
 
 export const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };

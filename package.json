@@ -8,21 +8,20 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@web3-react/core": "^6.1.9",
-    "@web3-react/injected-connector": "^6.0.7",
     "aws-sdk": "^2.1037.0",
     "i18next": "^21.5.3",
-    "i18next-resources-to-backend": "^1.0.0",
+    "memory-cache": "^0.2.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.34",
     "next": "12.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-i18next": "^11.14.3",
     "swr": "^1.0.1",
-    "web3": "^1.6.1",
-    "web3-token": "^0.1.32",
     "windicss": "^3.2.1"
   },
   "devDependencies": {
+    "@types/memory-cache": "^0.2.1",
     "@types/node": "16.11.10",
     "@types/react": "17.0.36",
     "@typescript-eslint/eslint-plugin": "^5.4.0",

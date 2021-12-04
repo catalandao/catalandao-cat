@@ -1,217 +1,33 @@
-import useSwr from 'swr';
-import Image from 'next/image';
 import Page from '@/components/Page';
 import Link from '@/components/Link';
-import Table from '@/components/Table';
 import { useTranslation } from '@/lib/i18n';
-import { dateOptions } from '../lib/i18n';
 import PhotoKlas from '../public/images/Foto-Klas.png';
 import PhotoCaboSanRoque from '../public/images/Foto-CaboSanRoque.png';
-import UnveiledTio1 from '../public/images/unveiled-tio1.jpeg';
-import UnveiledTio2 from '../public/images/unveiled-tio2.jpeg';
-import Tio1 from '../public/images/revealed/1.jpeg';
-import Tio2 from '../public/images/revealed/2.jpeg';
-import Tio3 from '../public/images/revealed/3.jpeg';
-import Tio4 from '../public/images/revealed/4.jpeg';
-import { LogoInstagram, LogoTwitter } from '@/styles/assets/svgs/logos';
 import { useEffect } from 'react';
 import { tallyConfig } from '@/lib/tally-config';
+import { Block, RCol, RRow } from '@/components/nft/Layout';
+import ArtistsSocial from '@/components/nft/ArtistsSocial';
+import Colophon from '@/components/nft/Colophon';
+import Image from '@/components/nft/Images';
+import Title from '@/components/nft/Title';
+import { CtaLink, SecondaryLink } from '@/components/nft/buttons';
+import Listing from '@/components/nft/Listing';
+import Tions from '@/components/nft/Tions';
+import Ranking from '@/components/nft/Ranking';
+import { getCurrent } from '@/lib/time';
 
-
-const unveiled = {
-  odd: UnveiledTio1,
-  even: UnveiledTio2,
-} as const;
-
-const getRemaining = (start: number, end: number) => (
-  [...new Array(end - start)].reduce(
-    (trail, _, ptr) => [...trail, unveiled[ptr % 2 === 0 ? 'even' : 'odd']],
-    [],
-  )
-);
-
-const tions = [
-  Tio1,
-  Tio2,
-  Tio3,
-  Tio4,
-  ...getRemaining(1, 21),
-] as const;
-
-interface Props {
-  children: React.ReactNode;
-  className?: string;
-}
-
-const Title = ({ children, className = '' }: Props) => (
-  <h1 className={`${className} justify-center flex text-3xl lg:text-5xl my-8`}>{children}</h1>
-);
-
-interface BlockProps extends Props {
-  id?: string;
-  colored?: boolean;
-}
-const Block = ({ id, children, colored, className = '' }: BlockProps) => (
-  <div id={id} className={`${className} space-y-6 p-2 pb-6 lg:p-16 lg:py-5 ${colored ? 'bg-[#FFD740]' : ''}`}>
-    {children}
-  </div>
-);
-
-const RRow = ({ children, className = '' }: Props) => (
-  <div className={`${className} max-w-1840px flex lg:flex-row lg:space-x-10 w-full p-1 lg:p-6 box-border flex-col mx-auto max-w-screen-xl`}>{children}</div>
-);
-const RCol = ({ children, className = '' }: Props) => (
-  <div className={`${className} flex-1 px-3 lg:p-6 space-y-6`}>{children}</div>
-);
-
-interface BtProps extends Props {
-  href: string;
-  onClick?: React.MouseEventHandler;
-}
-const CtaLink = ({ children, href, className }: BtProps) => (
-  <a className={`${className} text-white text-sm lg:text-lg text-center py-2 px-4 lg:px-5 shadow-lg shadow-dark-700 bg-[#0E6FFF] rounded`} href={href} target="_blank" rel="noreferrer">{children}</a>
-);
-const SecondaryLink = ({ children, href, className }: BtProps) => (
-  <a className={`${className} text-white text-sm lg:text-lg text-center py-2 px-4 lg:px-5 shadow-lg shadow-dark-700 bg-[#FF4242] rounded`} href={href} target="_blank" rel="noreferrer">{children}</a>
-);
-
-interface ImgProps extends Omit<Props, 'children'> {
-  reversed?: boolean;
-  caption?: string;
-  src: string | StaticImageData;
-}
-const Img = ({ src, caption, reversed, className = '' }: ImgProps) => {
-  const Caption = () => (
-    <figcaption className="text-lg lg:text-xl justify-center my-3 flex">{caption}</figcaption>
-  );
-
-  return (
-    <figure className={`${className} w-full`}>
-      {reversed && caption && <Caption />}
-      <div className="rounded-xl shadow-xl">
-        <Image src={src} alt={caption} layout="responsive" objectFit="cover" className="rounded-xl" />
-      </div>
-      {!reversed && caption && <Caption />}
-    </figure>
-  );
-};
-
-interface NFTTioProps {
-  src?: string; // source of the revealed image, if missing a placeholder its set
-  index: number; // position on the grid 1-24
-  caption?: string;
-}
-const NFTTio = ({
-  index,
-  src,
-  caption,
-}: NFTTioProps) => {
-  const source = src ?? unveiled[index % 2 === 0 ? 'even' : 'odd'];
-  return <div className="min-h-sm"><Img src={source} caption={caption} reversed /></div>;
-};
-
-const Colophon = ({ children, className = '' }: Props) => (
-  <RRow className={`${className} shadow-xl mx-auto p-10 bg-[#FF4242] box-sixing rounded-xl bg-opacity-25`}>
-    {children}
-  </RRow>
-);
-
-interface ArtistsSocialProps extends Omit<Props, 'children'> {
-  website: string;
-  twitter?: string;
-  instagram: string;
-}
-const ArtistsSocial = ({ website, twitter, instagram, className = '' }: ArtistsSocialProps) => (
-  <div className={`${className} space-y-6 pb-10`}>
-    <p><a href={website} target="_blank" rel="noreferrer" className="underline underline-black"><span className="mr-2">🌎</span>{website}</a></p>
-    <p>
-      <a href={`https://instagram.com/${instagram}`} target="_blank" rel="noreferrer" className="inline-flex items-center underline underline-black">
-        <LogoInstagram className="w-5 h-5 mr-2" />{instagram}
-      </a>
-    </p>
-    {twitter && (
-      <p>
-        <a href={`https://twitter.com/${twitter}`} target="_blank" rel="noreferrer" className="inline-flex items-center underline underline-black">
-          <LogoTwitter className="w-5 h-5 mr-2 fill-[#1d9bf0]" />{twitter}
-        </a>
-      </p>
-    )}
-  </div>
-);
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Component = () => {
   const { t } = useTranslation();
-
+  const current = getCurrent();
   useEffect(() => {
     (window as any).TallyConfig = tallyConfig;
   }, []);
-
-  const { data: buyers = [] } = useSwr('/api/buyers', fetcher);
   return (
     <Page className="bg-[#EEE] text-sm lg:text-lg">
-      <Block>
-        <RRow>
-          <RCol>
-            <header>
-              <span className="text-1xl text-[#777]">{t('nft:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
-              <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: 4 })}</h1>
-            </header>
-            <div className="block lg:hidden">
-              <Img className="min-h-2xl my-10" src={Tio4} caption={t('nft:intro.help.log_count', { unit: 4, total: 24 })} />
-              {/*
-              <div className="flex flex-col">
-                <span className="text-xl lg:text-xl">{t('nft:intro.help.price', { price: 0.25 })}</span>
-                <span className="text-xl lg:text-xl">{t('nft:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
-              </div>
-               */}
-            </div>
-            <p className="max-w-2xl lg:min-h-80">
-              {t('nft:intro.text')}
-              <Link className="underline" newTab={true} href="https://www.notion.so/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996">{t('nft:intro.link')}</Link>.
-            </p>
-            <div className="my-10 flex flex-col">
-              <CtaLink href="https://opensea.io/CatalanDAO">{t('nft:intro.cta')}</CtaLink>
-              <div className="flex flex-row justify-around p-2 my-3">
-                <Link newTab={true} href="https://www.notion.so/catalandao/Com-participar-de-la-subhasta-dels-NFT-d-advent-02422855608b4385b75ba5dca4101afb" className="text-sm lg:text-sm hover:underline">
-                  <span className="mx-2">&#x2139;</span>{t('nft:intro.help.involvement')}</Link>
-                <Link href="#faq" className="text-sm lg:text-sm hover:underline">
-                  <span className="mx-2">&#x2753;</span>{t('nft:intro.help.faq')}</Link>
-              </div>
-            </div>
-            {/*
-            <div className="flex-col hidden lg:flex">
-              <span className="text-xl flex lg:text-xl">{t('nft:intro.help.price', { price: 0.25 })}</span>
-              <span className="text-xl flex lg:text-xl">{t('nft:intro.help.time_remaining', { h: 23, m: 39, s: 23 })}</span>
-            </div>
-            */}
-          </RCol>
-          <RCol className="hidden lg:flex">
-            <Img className="mx-auto w-128" src={Tio4} caption={t('nft:intro.help.log_count', { unit: 4, total: 24 })} />
-          </RCol>
-        </RRow>
-      </Block>
-      <Block colored>
-        <Title>{t('nft:listing.title')}</Title>
-        <RRow>
-          <RCol>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5 lg:gap-10">
-              {tions.map((src, i) => (
-                <NFTTio key={i} index={i} src={src} caption={t('nft:listing.item.title', { x: i + 1 })} />
-              ))}
-            </div>
-          </RCol>
-        </RRow>
-      </Block>
-      <Block>
-        <Title>{t('nft:ranking.title')}</Title>
-        <RRow>
-          <RCol>
-            <Table rows={buyers} />
-          </RCol>
-        </RRow>
-      </Block>
+      <Listing current={current} />
+      <Tions />
+      <Ranking />
       <Block colored>
         <Title>{t('nft:rationale.title')}</Title>
         <RRow>
@@ -232,13 +48,13 @@ const Component = () => {
         <Title>{t('nft:artists.title')}</Title>
         <RRow className="space-y-6  lg:space-y-0">
           <RCol>
-            <Img src={PhotoKlas} />
+            <Image src={PhotoKlas} />
             <header className="text-2xl">{t('nft:artists.klas.title')}</header>
             <p>{t('nft:artists.klas.description')}</p>
             <ArtistsSocial website="https://klasherbert.com/" instagram="klasherbert" />
           </RCol >
           <RCol>
-            <Img src={PhotoCaboSanRoque} />
+            <Image src={PhotoCaboSanRoque} />
             <header className="text-2xl">{t('nft:artists.cabo_san_roque.title')}</header>
             <p>{t('nft:artists.cabo_san_roque.description')}</p>
             <ArtistsSocial website="https://cabosanroque.com/" twitter="cabosanroque" instagram="cabosanroque" />
@@ -303,7 +119,7 @@ const Component = () => {
           </RCol>
         </RRow>
       </Block>
-    </Page >
+    </Page>
   );
 };
 
