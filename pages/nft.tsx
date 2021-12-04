@@ -12,6 +12,7 @@ import UnveiledTio2 from '../public/images/unveiled-tio2.jpeg';
 import Tio1 from '../public/images/revealed/1.jpeg';
 import Tio2 from '../public/images/revealed/2.jpeg';
 import Tio3 from '../public/images/revealed/3.jpeg';
+import Tio4 from '../public/images/revealed/4.jpeg';
 import { LogoInstagram, LogoTwitter } from '@/styles/assets/svgs/logos';
 import { useEffect } from 'react';
 import { tallyConfig } from '@/lib/tally-config';
@@ -33,7 +34,8 @@ const tions = [
   Tio1,
   Tio2,
   Tio3,
-  ...getRemaining(1, 22),
+  Tio4,
+  ...getRemaining(1, 21),
 ] as const;
 
 interface Props {
@@ -154,10 +156,10 @@ const Component = () => {
           <RCol>
             <header>
               <span className="text-1xl text-[#777]">{t('nft:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
-              <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: 3 })}</h1>
+              <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: 4 })}</h1>
             </header>
             <div className="block lg:hidden">
-              <Img className="min-h-2xl my-10" src={Tio3} caption={t('nft:intro.help.log_count', { unit: 3, total: 24 })} />
+              <Img className="min-h-2xl my-10" src={Tio4} caption={t('nft:intro.help.log_count', { unit: 4, total: 24 })} />
               {/*
               <div className="flex flex-col">
                 <span className="text-xl lg:text-xl">{t('nft:intro.help.price', { price: 0.25 })}</span>
@@ -186,7 +188,7 @@ const Component = () => {
             */}
           </RCol>
           <RCol className="hidden lg:flex">
-            <Img className="mx-auto w-128" src={Tio3} caption={t('nft:intro.help.log_count', { unit: 3, total: 24 })} />
+            <Img className="mx-auto w-128" src={Tio4} caption={t('nft:intro.help.log_count', { unit: 4, total: 24 })} />
           </RCol>
         </RRow>
       </Block>
