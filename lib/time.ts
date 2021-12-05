@@ -17,7 +17,7 @@ export const useTicker = (until: string): string => {
 
 export function getCurrent(): number {
   const now = moment().tz(tz);
-  if (now.hours() < 13) {
+  if (now.hours() < 12) {
     return now.date() - 1;
   }
   return now.date();
