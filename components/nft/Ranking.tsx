@@ -6,6 +6,25 @@ import useSWR from 'swr';
 import { Block, RCol, RRow } from './Layout';
 import Title from './Title';
 
+const getHeaderClasses = (name: string): string => {
+  const baseClasses = ['text-xs', 'lg:text-lg'];
+  if (name === 'num') {
+    return [...baseClasses, 'hidden', 'lg:table-cell'].join(' ');
+  }
+  return baseClasses.join(' ');
+};
+
+const getCellClasses = (name: string): string => {
+  const baseClasses = ['lg:text-lg', 'text-xs', 'p-1', 'border-yellow-400', 'truncate'];
+  if (name === 'num') {
+    return [...baseClasses, 'hidden', 'lg:table-cell'].join(' ');
+  }
+  if (name === 'address') {
+    return [...baseClasses, 'max-w-40', 'lg:max-w-auto', 'tracking-tighter', 'proportional-nums'].join(' ');
+  }
+  return baseClasses.join(' ');
+};
+
 interface Props {
   rows: Record<string, string>[];
 }
@@ -18,12 +37,12 @@ const Table = ({ rows }: Props) => {
       <table className="border w-full items-center bg-transparent w-full border-collapse">
         <thead>
           <tr className="text-center text-md bg-yellow-500 text-white">
-            {headers.map((h, i) => <th key={i} className="text-md">{t(`nft:ranking.table.headers.${h}`)}</th>)}
+            {headers.map((h, i) => <th key={i} className={getHeaderClasses(h)}>{t(`nft:ranking.table.headers.${h}`)}</th>)}
           </tr>
         </thead>
         <tbody className="lg:text-center max-h-128 lg:mx-auto overflow-y-scroll lg:overscroll-y-auto">
           {rows.map((row, i) => <tr className="even:bg-yellow-50 bg-yellow-100" key={i}>
-            {headers.map((h) => <td title={row[h]} className="lg:text-md max-w-20 p-1 border-yellow-400 text-sm truncate max-w-xs" key={h}>{row[h]}</td>)}
+            {headers.map((h) => <td title={row[h]} className={getCellClasses(h)} key={h}>{row[h]}</td>)}
           </tr>)}
         </tbody>
         {/* <tfoot></tfoot> ?? */}

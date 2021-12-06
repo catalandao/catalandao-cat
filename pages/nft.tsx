@@ -29,7 +29,7 @@ const Component = () => {
       <Tions />
       <Ranking />
       <Block colored>
-        <Title>{t('nft:rationale.title')}</Title>
+        <Title className="tracking-tighter lg:tracking-normal">{t('nft:rationale.title')}</Title>
         <RRow>
           <RCol>
             <p>{t('nft:rationale.content.first')}</p>

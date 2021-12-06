@@ -40,7 +40,7 @@ const Listing = ({ current }: Props) => {
             <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label', { n: current })}</h1>
           </header>
           <div className="block lg:hidden">
-            <Image width="600" height="857" className="min-h-2xl my-10" src={imageURL} caption={t('nft:intro.help.log_count', { unit: current, total: 24 })} />
+            <Image width="600" height="857" className="min-h-lg my-10" src={imageURL} caption={t('nft:intro.help.log_count', { unit: current, total: 24 })} />
             <ListingDetails closingDate={closingDate} price={price} />
           </div>
           <p className="max-w-2xl lg:min-h-80">

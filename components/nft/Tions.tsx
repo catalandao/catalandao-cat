@@ -26,7 +26,7 @@ const Tions = () => {
         <RCol>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5 lg:gap-10">
             {tions.map((src, i) => (
-              <div key={i} className="min-h-sm">
+              <div key={i}>
                 <Image width="600" height="857" src={src} caption={t('nft:listing.item.title', { x: i + 1 })} reversed />
               </div>
             ))}
