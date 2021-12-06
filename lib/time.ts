@@ -16,7 +16,7 @@ export const useTicker = (until: string): string => {
 };
 
 export function getCurrent(): number {
-  const now = moment().tz(tz);
+  const now = moment().tz('Europe/Andorra');
   if (now.hours() < 12) {
     return now.date() - 1;
   }
