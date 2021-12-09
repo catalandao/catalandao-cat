@@ -113,7 +113,7 @@ const Component = () => {
               </RCol>
               <RCol className="flex flex-col my-auto mt-6 lg:my-auto space-y-3">
                 <CtaLink href="https://discord.com/invite/BNqJQXwtqA">{t('nft:colophon.join.discord')}</CtaLink>
-                <SecondaryLink href="https://www.notion.so/catalandao/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996">{t('nft:colophon.join.wiki')}</SecondaryLink>
+                <SecondaryLink href="https://catalandao.notion.site/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996">{t('nft:colophon.join.wiki')}</SecondaryLink>
               </RCol>
             </Colophon>
           </RCol>
