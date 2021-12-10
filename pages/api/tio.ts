@@ -141,9 +141,10 @@ export default async function handler(
       ...winnerDetails,
     } as ResponseItem;
   }));
-  const numbered = data.map(x => ({
-    ...x,
-    id: parseInt(x.name.slice(-1)),
-  }));
+  const numbered = data.map(x => {
+    const matches = x.name.match(/(?<number>\d+$)/);
+    const num = parseInt(matches?.groups?.number as string);
+    return { ...x, id: num };
+  });
   return res.status(200).json(numbered);
 }
