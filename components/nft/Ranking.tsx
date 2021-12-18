@@ -15,14 +15,39 @@ const getHeaderClasses = (name: string): string => {
 };
 
 const getCellClasses = (name: string): string => {
-  const baseClasses = ['lg:text-lg', 'text-xs', 'p-1', 'border-yellow-400', 'truncate'];
+  const baseClasses = ['lg:text-lg', 'text-center', 'text-xs', 'p-1', 'border-yellow-400'];
   if (name === 'num') {
     return [...baseClasses, 'hidden', 'lg:table-cell'].join(' ');
   }
-  if (name === 'address') {
-    return [...baseClasses, 'max-w-40', 'lg:max-w-auto', 'tracking-tighter', 'proportional-nums'].join(' ');
-  }
   return baseClasses.join(' ');
+};
+
+const getCell = <K extends string = keyof Buyer>(
+  row: Record<K, string>,
+  name: K,
+): React.ReactNode => {
+  const Inner = () => {
+    if (name === 'address') {
+      const val = row[name];
+      const short = val.slice(2, 20);
+      const rest = val.slice(20, -1);
+      return <div className='indent-2 flex flex-row justify-center invisible lg:visible lining-nums proportional-nums tracking-tighter'>
+        <span className='hidden lg:flex'>0x</span>
+        <span className='flex flex-col visible'>{short}</span>
+        <span className='hidden lg:flex'>{rest}</span>
+      </div>;
+    }
+    if (name === 'price') {
+      const val = row[name];
+      return <div className='flex flex-row justify-start pl-4'>{val}</div>;
+    }
+    return <span className='whitespace-nowrap'>{row[name]}</span>;
+  };
+  return (
+    <td title={row[name]} className={getCellClasses(name)}>
+      <Inner />
+    </td>
+  );
 };
 
 interface Props {
@@ -42,7 +67,7 @@ const Table = ({ rows }: Props) => {
         </thead>
         <tbody className="lg:text-center max-h-128 lg:mx-auto overflow-y-scroll lg:overscroll-y-auto">
           {rows.map((row, i) => <tr className="even:bg-yellow-50 bg-yellow-100" key={i}>
-            {headers.map((h) => <td title={row[h]} className={getCellClasses(h)} key={h}>{row[h]}</td>)}
+            {headers.map((h) => getCell(row, h))}
           </tr>)}
         </tbody>
         {/* <tfoot></tfoot> ?? */}

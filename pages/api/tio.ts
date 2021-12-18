@@ -86,7 +86,8 @@ function getOwnerAddress({ top_ownerships: [{ owner }] }: Asset): string {
 }
 
 function getWinningBid({ last_sale: { payment_token: { symbol, decimals }, total_price } }: Asset): Price {
-  const amount = total_price / Math.pow(10, decimals);
+  const val = total_price / Math.pow(10, decimals);
+  const amount = Math.floor(val * 1_000_000) / 1_000_000;
   return { symbol, amount };
 }
 
