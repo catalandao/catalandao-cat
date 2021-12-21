@@ -102,7 +102,7 @@ async function getAssets(): Promise<Collection> {
     return value;
   }
   const hours = 4; // 4h cache its enough
-  const uri = `https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&collection=${NFT_COLLECTION_NAME}`;
+  const uri = `https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=50&collection=${NFT_COLLECTION_NAME}`;
   const res = await fetch(uri, { headers: { 'Accept': 'application/json' } });
   const { assets } = await res.json();
   cacheData.put('assets', assets, hours * 1000 * 60 * 60);
