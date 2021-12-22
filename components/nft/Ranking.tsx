@@ -30,7 +30,7 @@ const getCell = <K extends string = keyof Buyer>(
     if (name === 'address') {
       const val = row[name];
       const short = val.slice(2, 20);
-      const rest = val.slice(20, -1);
+      const rest = val.slice(20);
       return <div className='indent-2 flex flex-row justify-center invisible lg:visible lining-nums proportional-nums tracking-tighter'>
         <span className='hidden lg:flex'>0x</span>
         <span className='flex flex-col visible'>{short}</span>
