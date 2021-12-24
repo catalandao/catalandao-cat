@@ -1,4 +1,5 @@
 {
+  "cta.nadala": "🎵 Escolta la nadala 🎄",
   "intro.date": "{{date, datetime}}",
   "intro.label": "Atrapa el tió número #{{ n }}",
   "intro.text": "CatalanDAO presenta una sèrie exclusiva de 24 NFTs que donen dret a la propietat d’una obra única i original de l’artista plàstic Klas Ernflo i accés exclusiu a una nadala dels artistes sonors CaboSanRoque.\n\n Els fons recaptats s’utilitzaran per finançar projectes al voltant de la cultura i llengua catalana, desenvolupar projectes socials experimentant amb tecnologies descentralitzades i remunerar de forma justa als artistes. Informa’t més en les ",

@@ -16,6 +16,7 @@ import Tions from '@/components/nft/Tions';
 import Ranking from '@/components/nft/Ranking';
 import { getCurrent } from '@/lib/time';
 
+const NADALA_LINK_URL = "https://mgate.io/go/EySYdX0sVTop"
 
 const Component = () => {
   const { t } = useTranslation();
@@ -28,6 +29,11 @@ const Component = () => {
       <Listing current={current} />
       <Tions />
       <Ranking />
+      <Block>
+        <div className="flex justify-center pl-4 pr-4 pb-4 md:(pt-2 pb-6) lg:(pt-0 pb-20)">
+          <CtaLink href={NADALA_LINK_URL} className='min-w-full md:min-w-120'>{t('nft:cta.nadala')}</CtaLink>
+        </div>
+      </Block>
       <Block colored>
         <Title className="tracking-tighter lg:tracking-normal">{t('nft:rationale.title')}</Title>
         <RRow>
