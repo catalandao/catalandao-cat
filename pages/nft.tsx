@@ -14,7 +14,7 @@ import { CtaLink, SecondaryLink } from '@/components/nft/buttons';
 import Tions from '@/components/nft/Tions';
 import Ranking from '@/components/nft/Ranking';
 
-const NADALA_LINK_URL = 'https://mgate.io/go/EySYdX0sVTop';
+const NADALA_LINK_URL = 'https://catalandao.mintgate.io/go/np2aGKvMsW19/';
 
 const Component = () => {
   const { t } = useTranslation();
