@@ -11,22 +11,18 @@ import Colophon from '@/components/nft/Colophon';
 import Image from '@/components/nft/Images';
 import Title from '@/components/nft/Title';
 import { CtaLink, SecondaryLink } from '@/components/nft/buttons';
-import Listing from '@/components/nft/Listing';
 import Tions from '@/components/nft/Tions';
 import Ranking from '@/components/nft/Ranking';
-import { getCurrent } from '@/lib/time';
 
-const NADALA_LINK_URL = "https://mgate.io/go/EySYdX0sVTop"
+const NADALA_LINK_URL = 'https://mgate.io/go/EySYdX0sVTop';
 
 const Component = () => {
   const { t } = useTranslation();
-  const current = getCurrent();
   useEffect(() => {
     (window as any).TallyConfig = tallyConfig;
   }, []);
   return (
     <Page className="bg-[#EEE] text-sm lg:text-lg">
-      <Listing current={current} />
       <Tions />
       <Ranking />
       <Block>
