@@ -2,6 +2,8 @@ const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
 
 /** @type {import('next').NextConfig} */
 module.exports = {
+  assetPrefix: './',
+  trailingSlash: true,
   reactStrictMode: true,
   swcMinify: true,
   webpack: config => {
@@ -10,6 +12,8 @@ module.exports = {
   },
   images: {
     domains: ['lh3.googleusercontent.com'],
+    loader: 'imgix',
+    path: '/',
   },
   eslint: {
     ignoreDuringBuilds: true,
