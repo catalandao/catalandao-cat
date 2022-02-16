@@ -1,0 +1,6 @@
+{
+    "game.title": "El tió te gana, dona-li de menjar",
+    "game.explanation": "Ha menjat {{eaten}} fruits, falten {{remaining}}",
+    "game.full.title": "El tió esta ple, comença a donar-li amb el bastó",
+    "game.forbidden": "Només pots veure aquesta secció si has comprat un tió :("
+}

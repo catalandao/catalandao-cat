@@ -8,8 +8,8 @@ import enManifest from '@/locales/en/manifest.json';
 import caCommon from '@/locales/ca/common.json';
 import caNft from '@/locales/ca/nft.json';
 import caManifest from '@/locales/ca/manifest.json';
-import moment from 'moment';
-
+import caCagatio from '@/locales/ca/cagatio.json';
+import enCagatio from '@/locales/en/cagatio.json';
 
 export const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
@@ -17,8 +17,8 @@ i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources: {
-      en: { common: enCommon, nft: enNft, manifest: enManifest },
-      ca: { common: caCommon, nft: caNft, manifest: caManifest },
+      en: { common: enCommon, nft: enNft, manifest: enManifest, cagatio: enCagatio },
+      ca: { common: caCommon, nft: caNft, manifest: caManifest, cagatio: caCagatio },
     },
     lng: 'ca', // if you're using a language detector, do not define the lng option
     fallbackLng: 'ca',

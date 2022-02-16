@@ -8,6 +8,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@web3-react/core": "^6.1.9",
+    "@web3-react/injected-connector": "^6.0.7",
     "aws-sdk": "^2.1037.0",
     "i18next": "^21.5.3",
     "memory-cache": "^0.2.0",
@@ -17,7 +19,9 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-i18next": "^11.14.3",
+    "react-rewards": "^1.1.2",
     "swr": "^1.0.1",
+    "web3": "^1.6.1",
     "windicss": "^3.2.1"
   },
   "devDependencies": {
