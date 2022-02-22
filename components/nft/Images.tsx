@@ -8,11 +8,6 @@ const Caption = ({ caption }: CaptionProps) => (
   <figcaption className="text-lg lg:text-xl justify-center my-3 flex">{caption}</figcaption>
 );
 
-// @ts-ignore
-const customLoader = ({ src }) => {
-  return src
-}
-
 interface ImageProps {
   className?: string;
   reversed?: boolean;
@@ -26,7 +21,7 @@ const Image = ({ src, width, height, caption, reversed, className = '' }: ImageP
     <figure className={`${className} w-full`}>
       {reversed && caption && <Caption caption={caption} />}
       <div className="rounded-xl shadow-xl">
-        {src && <BaseImage width={width} height={height} loader={customLoader} src={src} alt={caption} layout="responsive" objectFit="cover" className="rounded-xl" />}
+        {src && <BaseImage width={width} height={height} unoptimized src={src} alt={caption} layout="responsive" objectFit="cover" className="rounded-xl" />}
       </div>
       {!reversed && caption && <Caption caption={caption} />}
     </figure>

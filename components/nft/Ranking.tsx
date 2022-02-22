@@ -1,7 +1,7 @@
 
 import { useTranslation } from '@/lib/i18n';
 import { fetcher } from '@/lib/loaders';
-import type { ResponseItem } from '@/pages/api/tio';
+import type { ResponseItem } from '@/components/nft/Listing';
 import useSWR from 'swr';
 import { Block, RCol, RRow } from './Layout';
 import Title from './Title';

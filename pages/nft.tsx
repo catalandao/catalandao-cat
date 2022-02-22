@@ -24,8 +24,8 @@ const Component = () => {
   return (
     <Page className="bg-[#EEE] text-sm lg:text-lg">
       <Tions />
-      <Ranking />
       <Block>
+        <Title>{t('nft:ranking.title')}</Title>
         <div className="flex justify-center pl-4 pr-4 pb-4 md:(pt-2 pb-6) lg:(pt-0 pb-20)">
           <CtaLink href={NADALA_LINK_URL} className='min-w-full md:min-w-120'>{t('nft:cta.nadala')}</CtaLink>
         </div>

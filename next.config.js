@@ -30,6 +30,16 @@ const nextConfig = {
       },
     ]
   },
+  async exportPathMap(defaultPathMap,{ dev, dir, outDir, distDir, buildId }) {
+    return {
+      '/': { page: '/manifest' },
+      '/manifest': { page: '/manifest' },
+      '/nft': { page: '/nft' },
+      '/eines': { page: '/eines' },
+      '/comunitat': { page: '/comunitat' },
+      '/contacte': { page: '/contacte' },
+    }
+  },
 };
 
 /** @type {import('next').NextConfig} */
