@@ -1,8 +1,6 @@
 import Page from '@/components/Page';
 import Link from '@/components/Link';
 import { useTranslation } from '@/lib/i18n';
-import PhotoKlas from '../public/images/Foto-Klas.png';
-import PhotoCaboSanRoque from '../public/images/Foto-CaboSanRoque.png';
 import { useEffect } from 'react';
 import { tallyConfig } from '@/lib/tally-config';
 import { Block, RCol, RRow } from '@/components/nft/Layout';
@@ -14,6 +12,8 @@ import { CtaLink, SecondaryLink } from '@/components/nft/buttons';
 import Tions from '@/components/nft/Tions';
 import Ranking from '@/components/nft/Ranking';
 
+const PhotoKlas = require('@/public/images/Foto-Klas.png');
+const PhotoCaboSanRoque = require('@/public/images/Foto-CaboSanRoque.png');
 const NADALA_LINK_URL = 'https://catalandao.mintgate.io/go/np2aGKvMsW19/';
 
 const Component = () => {
@@ -50,13 +50,13 @@ const Component = () => {
         <Title>{t('nft:artists.title')}</Title>
         <RRow className="space-y-6  lg:space-y-0">
           <RCol>
-            <Image src={PhotoKlas} />
+            <Image src={PhotoKlas.src} />
             <header className="text-2xl">{t('nft:artists.klas.title')}</header>
             <p>{t('nft:artists.klas.description')}</p>
             <ArtistsSocial website="https://klasherbert.com/" instagram="klasherbert" />
           </RCol >
           <RCol>
-            <Image src={PhotoCaboSanRoque} />
+            <Image src={PhotoCaboSanRoque.src} />
             <header className="text-2xl">{t('nft:artists.cabo_san_roque.title')}</header>
             <p>{t('nft:artists.cabo_san_roque.description')}</p>
             <ArtistsSocial website="https://cabosanroque.com/" twitter="cabosanroque" instagram="cabosanroque" />

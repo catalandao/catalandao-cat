@@ -1,7 +1,10 @@
-const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
+const WindiCSSWebpackPlugin = require('windicss-webpack-plugin');
+const { withPlugins } = require('next-compose-plugins');
+const withOptimizedImages = require('next-optimized-images');
 
-/** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
+  assetPrefix: './',
+  trailingSlash: true,
   reactStrictMode: true,
   swcMinify: true,
   webpack: config => {
@@ -10,6 +13,8 @@ module.exports = {
   },
   images: {
     domains: ['lh3.googleusercontent.com'],
+    disableStaticImages: true,
+    loader: "custom"
   },
   eslint: {
     ignoreDuringBuilds: true,
@@ -25,4 +30,7 @@ module.exports = {
       },
     ]
   },
-}
+};
+
+/** @type {import('next').NextConfig} */
+module.exports = withPlugins([withOptimizedImages], nextConfig);
