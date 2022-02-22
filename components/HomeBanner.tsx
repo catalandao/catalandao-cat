@@ -5,7 +5,7 @@ interface Props {
 }
 const HomeBanner = ({ className = '' }: Props) => (
   <div className={`${className} max-w-screen max-h-auto`}>
-    <HomeHeaderBanner className="h-60 lg:h-auto flex flex-grow flex-1 w-full" />
+
   </div>
 );
 
