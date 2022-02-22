@@ -1,7 +1,6 @@
 import { dateOptions, useTranslation } from '@/lib/i18n';
 import { fetcher } from '@/lib/loaders';
 import { useTicker } from '@/lib/time';
-import type { Price, ResponseItem } from '@/pages/api/tio';
 import useSWR from 'swr';
 import Link from '../Link';
 import { CtaLink } from './buttons';
@@ -12,6 +11,20 @@ interface ListingDetailsProps {
   className?: string;
   price: Price;
   closingDate: string;
+}
+interface Price {
+  symbol: string;
+  amount: number;
+}
+export interface ResponseItem {
+  id: number;
+  name: string;
+  imageURL: string;
+  price: Price;
+  closingDate: string;
+  isSold: boolean;
+  winningBid?: Price;
+  winnerAddress?: string;
 }
 const ListingDetails = ({ price, closingDate, className = '' }: ListingDetailsProps) => {
   const { t } = useTranslation();
