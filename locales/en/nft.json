@@ -7,8 +7,6 @@
   "intro.cta": "Go get them!",
   "intro.help.involvement": "How yo participate",
   "intro.help.faq": "F.A.Q.",
-  "intro.help.price": "Current price: {{amount, number(maximumFractionDigits: 2)}}{{symbol}}",
-  "intro.help.time_remaining": "Time remaining: ",
   "intro.coming_soon": "Do not blink, it's about to start!",
   "intro.help.log_count": "💩 Log #{{ unit }} from #{{ total }}",
   "listing.title": "🎄 Advent Calendar 🎄",
