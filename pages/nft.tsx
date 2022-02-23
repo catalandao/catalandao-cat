@@ -24,7 +24,7 @@ const Component = () => {
   }, []);
   return (
     <Page className="bg-[#EEE] text-sm lg:text-lg">
-      <Listing current={24} />
+      <Listing current={25} />
       <Tions />
       <Block>
         <Title>{t('nft:ranking.title')}</Title>
