@@ -11,6 +11,7 @@ import Title from '@/components/nft/Title';
 import { CtaLink, SecondaryLink } from '@/components/nft/buttons';
 import Tions from '@/components/nft/Tions';
 import Ranking from '@/components/nft/Ranking';
+import Listing from '@/components/nft/Listing';
 
 const PhotoKlas = require('@/public/images/Foto-Klas.png');
 const PhotoCaboSanRoque = require('@/public/images/Foto-CaboSanRoque.png');
@@ -23,6 +24,7 @@ const Component = () => {
   }, []);
   return (
     <Page className="bg-[#EEE] text-sm lg:text-lg">
+      <Listing current={24} />
       <Tions />
       <Block>
         <Title>{t('nft:ranking.title')}</Title>
