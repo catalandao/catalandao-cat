@@ -22,7 +22,7 @@ export interface ResponseItem {
 interface Props {
   current: number;
 }
-const faqURL = "https://www.notion.so/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996";
+const faqURL = "https://catalandao.notion.site/Preguntes-freq-ents-NFTs-d-Advent-e5a72e83bd5b49cc97790d9ad0188996";
 
 const Listing = ({ current }: Props) => {
   const { t } = useTranslation();
