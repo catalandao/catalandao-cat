@@ -1,21 +1,16 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import { CatDAOLogo, DAOLogo } from '@/styles/assets/svgs/logos';
 import LanguageSelector from './LanguageSelector';
 import NavItem from './NavItem';
 import { useTranslation } from '@/lib/i18n';
 import Navigation from './Navigation';
-import HomeBanner from './HomeBanner';
 
 
 const Header = () => {
   const { t } = useTranslation();
-  const { asPath } = useRouter();
-  const isHome = asPath === '/';
 
   return (
     <>
-      {isHome && <HomeBanner />}
       <header className="sticky top-0 z-50 border-t border-b bg-white min-h-24 flex justify-center">
         <div className="max-w-1840px flex w-full relative">
           <div className="lg:hidden ml-20 mt-4">
