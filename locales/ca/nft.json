@@ -1,9 +1,8 @@
 {
   "cta.nadala": "🎵 Escolta la nadala 🎄",
-  "intro.date": "{{date, datetime}}",
   "intro.label": "Tions d'Advent NFT",
   "intro.text": "CatalanDAO presenta una sèrie exclusiva de 24 NFTs que donen dret a la propietat d’una obra única i original de l’artista plàstic Klas Ernflo i accés exclusiu a una nadala dels artistes sonors CaboSanRoque.\n\n Els fons recaptats s’utilitzen per finançar projectes al voltant de la cultura i llengua catalana, desenvolupar projectes socials experimentant amb tecnologies descentralitzades i remunerar de forma justa als artistes. Informa’t més en les ",
-  "intro.cta": "Aconsegueix-lo!",
+  "intro.cta": "Veure col·lecció",
   "intro.link": "Preguntes Freqüents",
   "intro.help.faq": "Preguntes freqüents",
   "intro.coming_soon": "Presta atenció, avïat comença!",

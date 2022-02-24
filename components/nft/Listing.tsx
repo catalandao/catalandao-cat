@@ -1,4 +1,4 @@
-import { dateOptions, useTranslation } from '@/lib/i18n';
+import { useTranslation } from '@/lib/i18n';
 import Link from '../Link';
 import { CtaLink } from './buttons';
 import Image from './Images';
@@ -32,7 +32,6 @@ const Listing = ({ current }: Props) => {
       <RRow>
         <RCol>
           <header>
-            <span className="text-1xl text-[#777]">{t('nft:intro.date', { date: new Date(), formatParams: { date: dateOptions } })}</span>
             <h1 className="flex text-3xl lg:text-5xl my-8 mt-2">{t('nft:intro.label')}</h1>
           </header>
           <div className="block lg:hidden">
